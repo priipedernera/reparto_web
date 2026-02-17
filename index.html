@@ -1,127 +1,262 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+<!-- 
+    ============================================
+    REPARTO DE AGUA - Página Principal
+    ============================================
+    Sitio web para software de gestión de distribuidoras de agua y soda
+    Desarrollado con HTML5, Tailwind CSS y JavaScript vanilla
+    
+    Estructura del proyecto:
+    - index.html      → Página principal (este archivo)
+    - css/styles.css  → Estilos personalizados
+    - js/main.js      → JavaScript para interactividad
+    - images/         → Carpeta para imágenes (opcional)
+    ============================================
+-->
 <head>
+    <!-- ============================================
+         META TAGS BÁSICOS
+         Configuración del documento y codificación
+         ============================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reparto de Agua - Gestión Inteligente de Distribución</title>
+    
+    <!-- ============================================
+         META TAGS SEO
+         Para mejorar el posicionamiento en buscadores
+         ============================================ -->
+    <meta name="description" content="Software de gestión para distribuidoras de agua y soda. Aumentá la eficiencia de tu negocio con nuestra app móvil y sistema de gestión.">
+    <meta name="keywords" content="reparto de agua, distribuidora de agua, software reparto, gestión de agua, soda, app repartidores">
+    <meta name="author" content="StartApp - Reparto de Agua">
+    
+    <!-- ============================================
+         META TAGS OPEN GRAPH
+         Para compartir en redes sociales (Facebook, LinkedIn, etc.)
+         ============================================ -->
+    <meta property="og:title" content="Reparto de Agua - Software de Gestión para Distribuidoras">
+    <meta property="og:description" content="Software de gestión para distribuidoras de agua y soda. Más de 1.500 repartidores ya usan nuestra app.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://www.repartodeagua.com">
+    <meta property="og:type" content="website">
+    
+    <!-- ============================================
+         TÍTULO DE LA PÁGINA
+         Aparece en la pestaña del navegador
+         ============================================ -->
+    <title>Reparto de Agua - Software de Gestión para Distribuidoras de Agua y Soda</title>
+    
+    <!-- ============================================
+         FAVICON
+         Icono pequeño que aparece en la pestaña
+         ============================================ -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    
+    <!-- ============================================
+         TAILWIND CSS (CDN)
+         Framework CSS para estilos rápidos y responsivos
+         Configuración personalizada de colores
+         ============================================ -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Configuración personalizada de Tailwind
+        // Definimos colores personalizados para usar en toda la página
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0EA5E9',
-                        secondary: '#0284C7',
-                        accent: '#06B6D4',
+                        primary: '#0EA5E9',    // Azul principal (cielo)
+                        secondary: '#0284C7',  // Azul secundario (más oscuro)
+                        accent: '#06B6D4',     // Cyan para acentos
                     }
                 }
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-    </style>
+    
+    <!-- ============================================
+         CSS PERSONALIZADO
+         Archivo externo con estilos adicionales
+         ============================================ -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="bg-gray-50">
-    <!-- Navigation -->
+    <!-- 
+        ============================================
+        SECCIÓN: NAVEGACIÓN (NAV)
+        ============================================
+        - Barra de navegación fija en la parte superior
+        - Se mantiene visible al hacer scroll
+        - Incluye logo, menú de escritorio y menú móvil
+        ============================================
+    -->
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+        <!-- Contenedor principal con padding y centrado -->
         <div class="container mx-auto px-6 py-4">
+            <!-- Flexbox para distribuir logo y menú -->
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
-                    <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Reparto de Agua</span>
-                </div>
+                
+                <!-- LOGO: Logo oficial de Reparto de Agua -->
+                <a href="#home" class="flex items-center space-x-3">
+                    <!-- Logo del sitio oficial -->
+                    <img src="https://www.repartodeagua.com/img/home/logo-h.png" 
+                         alt="Logo Reparto de Agua" 
+                         class="h-10 w-auto">
+                </a>
+                
+                <!-- MENÚ DESKTOP: Solo visible en pantallas medianas y grandes (md:flex) -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-primary transition font-medium">Inicio</a>
-                    <a href="#features" class="text-gray-700 hover:text-primary transition font-medium">Características</a>
-                    <a href="#benefits" class="text-gray-700 hover:text-primary transition font-medium">Beneficios</a>
-                    <a href="#customers" class="text-gray-700 hover:text-primary transition font-medium">Clientes</a>
-                    <a href="#contact" class="text-gray-700 hover:text-primary transition font-medium">Contacto</a>
+                    <a href="#home" class="nav-link">Inicio</a>
+                    <a href="#features" class="nav-link">Características</a>
+                    <a href="#benefits" class="nav-link">Beneficios</a>
+                    <a href="#instagram" class="nav-link">Instagram</a>
+                    <a href="#customers" class="nav-link">Clientes</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
                 </div>
-                <button class="md:hidden text-gray-700">
+                
+                <!-- BOTÓN MENÚ MÓVIL: Solo visible en pantallas pequeñas -->
+                <!-- data-mobile-menu-button: Atributo para identificarlo en JavaScript -->
+                <button data-mobile-menu-button class="md:hidden text-gray-700 p-2">
+                    <!-- Icono de hamburguesa (3 líneas) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
+            
+            <!-- MENÚ MÓVIL: Oculto por defecto, se muestra al hacer clic -->
+            <!-- data-mobile-menu: Atributo para identificarlo en JavaScript -->
+            <div data-mobile-menu class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-primary transition font-medium py-2">Inicio</a>
+                <a href="#features" class="block text-gray-700 hover:text-primary transition font-medium py-2">Características</a>
+                <a href="#benefits" class="block text-gray-700 hover:text-primary transition font-medium py-2">Beneficios</a>
+                <a href="#instagram" class="block text-gray-700 hover:text-primary transition font-medium py-2">Instagram</a>
+                <a href="#customers" class="block text-gray-700 hover:text-primary transition font-medium py-2">Clientes</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary transition font-medium py-2">Contacto</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- 
+        ============================================
+        SECCIÓN: HERO (BANNER PRINCIPAL)
+        ============================================
+        - Primera sección visible al cargar la página
+        - Contiene el mensaje principal y llamada a la acción
+        - Fondo con gradiente azul
+        - Distribuido en 2 columnas: texto e ilustración
+        ============================================
+    -->
     <section id="home" class="pt-24 pb-20 gradient-bg text-white overflow-hidden">
         <div class="container mx-auto px-6">
+            <!-- Grid de 2 columnas en desktop, 1 en móvil -->
             <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- COLUMNA IZQUIERDA: Contenido textual -->
                 <div class="space-y-6">
+                    <!-- Badge/Etiqueta destacada -->
                     <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
-                        Solución Integral para Distribuidoras
+                        +1.500 repartidores ya confían en nosotros
                     </div>
+                    
+                    <!-- Título principal (H1 - importante para SEO) -->
                     <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-                        La Solución Más Eficaz para la Gestión de Agua y Soda
+                        Software de gestión para distribuidoras de agua y soda
                     </h1>
+                    
+                    <!-- Subtítulo/Descripción -->
                     <p class="text-xl text-blue-100">
-                        Administra ventas, cobranzas y distribución desde una plataforma móvil y web diseñada específicamente para tu negocio.
+                        Aumentá la eficiencia de tu negocio. Llevá tus operaciones al siguiente nivel con nuestra app móvil y sistema de gestión integral.
                     </p>
+                    
+                    <!-- BOTONES DE ACCIÓN (CTA - Call To Action) -->
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-xl">
-                            Solicitar Demo
+                        <!-- Botón principal: WhatsApp -->
+                        <a href="https://wa.me/5493765026080" target="_blank" class="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-xl flex items-center gap-2">
+                            <!-- Icono de WhatsApp -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Contactar por WhatsApp
                         </a>
+                        <!-- Botón secundario: Ver características -->
                         <a href="#features" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition">
                             Ver Características
                         </a>
                     </div>
                 </div>
+                
+                <!-- COLUMNA DERECHA: Imagen real del producto -->
+                <!-- float-animation: Clase CSS personalizada que hace flotar el elemento -->
                 <div class="relative float-animation">
                     <div class="relative z-10">
-                        <svg class="w-full h-auto" viewBox="0 0 500 500" fill="none">
-                            <!-- Mobile Device -->
-                            <rect x="150" y="50" width="200" height="350" rx="20" fill="white" opacity="0.95"/>
-                            <rect x="160" y="70" width="180" height="300" rx="10" fill="#E0F2FE"/>
-                            <circle cx="250" cy="390" r="15" fill="#0EA5E9"/>
-                            <!-- Delivery Truck -->
-                            <rect x="50" y="300" width="120" height="80" rx="10" fill="white" opacity="0.9"/>
-                            <circle cx="80" cy="390" r="20" fill="#0EA5E9"/>
-                            <circle cx="140" cy="390" r="20" fill="#0EA5E9"/>
-                            <!-- Water Drops -->
-                            <circle cx="380" cy="100" r="15" fill="white" opacity="0.7"/>
-                            <circle cx="420" cy="180" r="20" fill="white" opacity="0.6"/>
-                            <circle cx="400" cy="280" r="12" fill="white" opacity="0.8"/>
-                        </svg>
+                        <!-- Imagen de la app de rutas (del sitio oficial repartodeagua.com) -->
+                        <img src="https://www.repartodeagua.com/img/slider/ruta.png" 
+                             alt="App Reparto de Agua - Vista de Rutas" 
+                             class="w-full h-auto rounded-2xl shadow-2xl"
+                             loading="lazy">
                     </div>
+                    <!-- Decoraciones flotantes -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-cyan-400/20 rounded-full blur-2xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- 
+        ============================================
+        SECCIÓN: ESTADÍSTICAS
+        ============================================
+        - Muestra números importantes del negocio
+        - Grid de 4 columnas en desktop
+        - Datos extraídos de Instagram: seguidores, publicaciones, etc.
+        ============================================
+    -->
+    <section class="py-12 bg-white border-b">
+        <div class="container mx-auto px-6">
+            <!-- Grid de 4 columnas, 2 en móvil -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Estadística 1: Repartidores -->
+                <div class="animate-on-scroll">
+                    <p class="text-4xl font-bold text-primary">+1500</p>
+                    <p class="text-gray-600 mt-2">Repartidores activos</p>
+                </div>
+                <!-- Estadística 2: Publicaciones de Instagram -->
+                <div class="animate-on-scroll">
+                    <p class="text-4xl font-bold text-primary">198</p>
+                    <p class="text-gray-600 mt-2">Publicaciones</p>
+                </div>
+                <!-- Estadística 3: Seguidores de Instagram -->
+                <div class="animate-on-scroll">
+                    <p class="text-4xl font-bold text-primary">2325</p>
+                    <p class="text-gray-600 mt-2">Seguidores</p>
+                </div>
+                <!-- Estadística 4: Mejora de eficiencia -->
+                <div class="animate-on-scroll">
+                    <p class="text-4xl font-bold text-primary">40%</p>
+                    <p class="text-gray-600 mt-2">Más eficiencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        SECCIÓN: CARACTERÍSTICAS PRINCIPALES
+        ============================================
+        - Muestra las 3 plataformas del sistema:
+          1. Aplicación Móvil
+          2. Sistema de Gestión PC  
+          3. Monitor Web
+        - Cada tarjeta tiene icono, título, descripción y lista
+        ============================================
+    -->
     <section id="features" class="py-20 bg-white">
         <div class="container mx-auto px-6">
+            
+            <!-- Encabezado de la sección -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Características Principales</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -129,102 +264,141 @@
                 </p>
             </div>
 
+            <!-- Grid de 3 tarjetas -->
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Mobile App Feature -->
+                
+                <!-- TARJETA 1: Aplicación Móvil -->
                 <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover-lift">
-                    <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                        </svg>
+                    <!-- Imagen de la tablet (del sitio oficial) -->
+                    <div class="mb-6 rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://www.repartodeagua.com/img/home/home_tablet.png" 
+                             alt="App móvil Reparto de Agua" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Aplicación Móvil</h3>
                     <p class="text-gray-600 mb-6">
-                        Para celulares y tablets. Gestiona rutas, ventas y cobranzas en tiempo real desde el campo.
+                        La aplicación móvil está desarrollada para Android de forma nativa. No requiere INTERNET para funcionar.
                     </p>
+                    <!-- Lista de características (contenido oficial del sitio) -->
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <!-- Icono de check -->
+                            <svg class="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Registro de ventas offline</span>
+                            <span class="text-gray-700">Funciona sin conexión a Internet</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Optimización de rutas</span>
+                            <span class="text-gray-700">Registrar ventas y cobros</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Cobranza digital</span>
+                            <span class="text-gray-700">Impresión térmica portátil</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span class="text-gray-700">Desarrollada nativa para Android</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Desktop System Feature -->
+                <!-- TARJETA 2: Sistema de Gestión PC -->
                 <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 hover-lift">
-                    <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
+                    <!-- Imagen del sistema PC (del sitio oficial) -->
+                    <div class="mb-6 rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://www.repartodeagua.com/img/slider/pc-gestion.png" 
+                             alt="Sistema de Gestión PC Reparto de Agua" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Gestión PC</h3>
                     <p class="text-gray-600 mb-6">
-                        Software de escritorio completo para administrar tu distribuidora desde la oficina.
+                        Gestione clientes, rutas, productos, envases, saldos y equipos en comodato desde su oficina.
                     </p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-secondary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-secondary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Control de inventario</span>
+                            <span class="text-gray-700">Armado de repartos por zonas y días</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-secondary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-secondary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Facturación electrónica</span>
+                            <span class="text-gray-700">Facturación electrónica automática</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-secondary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-secondary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Reportes detallados</span>
+                            <span class="text-gray-700">Cuentas corrientes de clientes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span class="text-gray-700">Infinidad de informes y reportes</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Web Monitor Feature -->
+                <!-- TARJETA 3: Monitor Web -->
                 <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 hover-lift">
-                    <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
+                    <!-- Imagen del monitor web (dashboard ilustrativo) -->
+                    <div class="mb-6 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-cyan-500 to-blue-600 p-4">
+                        <div class="bg-white rounded-lg p-3">
+                            <!-- Simulación de dashboard web -->
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                <div class="flex-1 bg-gray-100 rounded h-4 ml-2"></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 mb-2">
+                                <div class="bg-cyan-100 rounded p-2 h-12"></div>
+                                <div class="bg-blue-100 rounded p-2 h-12"></div>
+                                <div class="bg-purple-100 rounded p-2 h-12"></div>
+                            </div>
+                            <div class="bg-gray-100 rounded h-16"></div>
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Monitor Web</h3>
                     <p class="text-gray-600 mb-6">
-                        Accede desde cualquier navegador para monitorear tu negocio en tiempo real.
+                        Seguimiento de empleados por GPS, ventas en tiempo real, mapa de clientes y pedidos.
                     </p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-accent mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-accent mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Dashboard en tiempo real</span>
+                            <span class="text-gray-700">Seguimiento GPS de empleados</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-accent mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-accent mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Seguimiento de entregas</span>
+                            <span class="text-gray-700">Ventas en tiempo real</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-accent mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-accent mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                             </svg>
-                            <span class="text-gray-700">Análisis de rendimiento</span>
+                            <span class="text-gray-700">Mapa de clientes y ventas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span class="text-gray-700">Gestión de pedidos online</span>
                         </li>
                     </ul>
                 </div>
@@ -232,103 +406,391 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-20 bg-gray-50">
+    <!-- 
+        ============================================
+        SECCIÓN: FUNCIONALIDADES COMPLETAS
+        ============================================
+        - Lista detallada de todas las funciones
+        - Contenido extraído del Instagram de @repartoagua
+        - Grid de 6 tarjetas con iconos
+        ============================================
+    -->
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
+            
+            <!-- Encabezado -->
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Beneficios</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Transforma tu distribuidora con tecnología de vanguardia
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Todo lo que podés hacer</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Organizá tu trabajo de forma rápida, ordenada y profesional con todas estas funcionalidades
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Grid de funcionalidades -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Funcionalidad 1: Gestión de Pedidos -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Gestión de Pedidos</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Mayor Eficiencia</h3>
-                    <p class="text-gray-600">Optimiza rutas y reduce tiempos de entrega hasta un 40%</p>
+                    <p class="text-gray-600">Gestionar pedidos en tiempo real o programados. Consultar historial, stock y servicios contratados del cliente.</p>
                 </div>
 
+                <!-- Funcionalidad 2: Cobranza Digital -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Cobranza Digital</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Control Financiero</h3>
-                    <p class="text-gray-600">Gestión completa de ventas, cobranzas y facturación</p>
+                    <p class="text-gray-600">Detallar forma de pago de cada venta. Cobrar con QR de Mercado Pago integrado.</p>
                 </div>
 
+                <!-- Funcionalidad 3: Mapa de Clientes -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Mapa de Clientes</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Fácil de Usar</h3>
-                    <p class="text-gray-600">Interfaz intuitiva que no requiere capacitación extensa</p>
+                    <p class="text-gray-600">Ver el mapa con la ubicación de tus clientes. Buscar por nombre, código o domicilio.</p>
                 </div>
 
+                <!-- Funcionalidad 4: Estadísticas -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Estadísticas</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Reportes Detallados</h3>
-                    <p class="text-gray-600">Toma decisiones basadas en datos en tiempo real</p>
+                    <p class="text-gray-600">Total Vendido, Total Cobrado, Compradores, no compradores, Venta por producto y más.</p>
                 </div>
 
+                <!-- Funcionalidad 5: Comprobantes -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Comprobantes</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Acceso en la Nube</h3>
-                    <p class="text-gray-600">Sincronización automática entre todos tus dispositivos</p>
+                    <p class="text-gray-600">Imprimir comprobantes en impresora térmica POS o generar archivo digital.</p>
                 </div>
 
+                <!-- Funcionalidad 6: Alertas Inteligentes -->
                 <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                        </svg>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Alertas Inteligentes</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Seguridad</h3>
-                    <p class="text-gray-600">Tus datos protegidos con encriptación de nivel bancario</p>
-                </div>
-
-                <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Soporte 24/7</h3>
-                    <p class="text-gray-600">Asistencia técnica disponible cuando la necesites</p>
-                </div>
-
-                <div class="bg-white rounded-xl p-6 shadow-md hover-lift">
-                    <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Actualizaciones</h3>
-                    <p class="text-gray-600">Mejoras continuas sin costo adicional</p>
+                    <p class="text-gray-600">Alertas de clientes que no compran, envases parados y otras situaciones clave.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Customers Section -->
+    <!-- 
+        ============================================
+        SECCIÓN: BENEFICIOS
+        ============================================
+        - 8 beneficios principales del sistema
+        - Grid de 4 columnas en desktop
+        - Cada tarjeta con icono, título y descripción
+        ============================================
+    -->
+    <section id="benefits" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            
+            <!-- Encabezado con frase de Instagram -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Beneficios</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Cuando el reparto está bajo control, el negocio crece
+                </p>
+            </div>
+
+            <!-- Grid de 8 beneficios (4 columnas) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Beneficio 1: Impresora Térmica -->
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Impresora Térmica</h3>
+                    <p class="text-gray-600">Comprobantes portátiles con impresora térmica POS</p>
+                </div>
+
+                <!-- Beneficio 2: Monitoreo GPS -->
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Monitoreo GPS</h3>
+                    <p class="text-gray-600">Seguimiento GPS de los repartidores en tiempo real</p>
+                </div>
+
+                <!-- Beneficio 3: Gestión de Envases -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Gestión de Envases</h3>
+                    <p class="text-gray-600">Control y recuperación de envases automático</p>
+                </div>
+
+                <!-- Beneficio 4: Abonos Mensuales -->
+                <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Abonos Mensuales</h3>
+                    <p class="text-gray-600">Gestión de abonos y planes mensuales de clientes</p>
+                </div>
+
+                <!-- Beneficio 5: Facturación Electrónica -->
+                <div class="bg-gradient-to-br from-cyan-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Facturación Electrónica</h3>
+                    <p class="text-gray-600">Facturación electrónica automática y/o individual</p>
+                </div>
+
+                <!-- Beneficio 6: Sin Papeles -->
+                <div class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Sin Papeles</h3>
+                    <p class="text-gray-600">Eliminación de planillas de hojas de cálculo y papeles</p>
+                </div>
+
+                <!-- Beneficio 7: Cuentas Corrientes -->
+                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Cuentas Corrientes</h3>
+                    <p class="text-gray-600">Gestión de cuentas corrientes y saldos de clientes</p>
+                </div>
+
+                <!-- Beneficio 8: Alertas Inteligentes -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-xl p-6 shadow-md hover-lift">
+                    <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Alertas Inteligentes</h3>
+                    <p class="text-gray-600">Alerta de no compra, envases, morosos y más</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        SECCIÓN: INSTAGRAM
+        ============================================
+        - Muestra contenido de @repartoagua
+        - Publicaciones destacadas con texto extraído
+        - Highlights/Destacados del perfil
+        - Botón para seguir en Instagram
+        ============================================
+    -->
+    <section id="instagram" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            
+            <!-- Encabezado con icono de Instagram -->
+            <div class="text-center mb-16">
+                <!-- Icono de Instagram con gradiente característico -->
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-2xl mb-6">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Seguinos en Instagram</h2>
+                <!-- Estadísticas del perfil -->
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    @repartoagua • 2325 seguidores • 198 publicaciones
+                </p>
+            </div>
+
+            <!-- PUBLICACIONES DESTACADAS (contenido real de Instagram) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Post 1: Publicación reciente -->
+                <div class="instagram-card rounded-2xl p-6">
+                    <!-- Header del post con avatar y usuario -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">repartoagua</p>
+                            <p class="text-sm text-gray-500">Hace 7 días</p>
+                        </div>
+                    </div>
+                    <!-- Contenido del post (texto extraído de Instagram) -->
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong>Cuando la información está clara, las decisiones cambian.</strong> Y cuando las decisiones cambian, el negocio avanza. Dejar de improvisar también es una forma de crecer 😉
+                    </p>
+                    <p class="text-primary mt-3 font-medium">👉 Hablemos y ordenemos tu reparto.</p>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="instagram-card rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">repartoagua</p>
+                            <p class="text-sm text-gray-500">26 de enero</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong>Empezá a manejar tu negocio en serio.</strong> Ordená rutas, clientes y cobros desde un solo lugar. Cuando el reparto está bajo control, el negocio crece.
+                    </p>
+                    <p class="text-primary mt-3 font-medium">🚀 Comenzá acá</p>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="instagram-card rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">repartoagua</p>
+                            <p class="text-sm text-gray-500">16 de enero</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong>El sistema que ordena tu reparto y hace crecer tu negocio.</strong> Más de 1.500 repartidores ya están usando nuestra app para organizar su trabajo de forma rápida, ordenada y profesional. 💧
+                    </p>
+                </div>
+            </div>
+
+            <!-- HIGHLIGHTS/DESTACADOS DE INSTAGRAM -->
+            <!-- Círculos que representan los destacados del perfil -->
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <!-- Destacado 1: Nuevas Funciones -->
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 p-1 mx-auto mb-2">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-gray-700">Nuevas Funciones</p>
+                </div>
+                <!-- Destacado 2: Planes -->
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 p-1 mx-auto mb-2">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-gray-700">Planes</p>
+                </div>
+                <!-- Destacado 3: Beneficios -->
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 p-1 mx-auto mb-2">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-gray-700">Beneficios</p>
+                </div>
+                <!-- Destacado 4: Hashtag -->
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 p-1 mx-auto mb-2">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-gray-700">#RepartoDeAgua</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN SEGUIR EN INSTAGRAM -->
+            <div class="text-center">
+                <a href="https://www.instagram.com/repartoagua/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 instagram-btn text-white rounded-xl font-semibold shadow-lg">
+                    <!-- Icono de Instagram -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Seguir @repartoagua
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        SECCIÓN: TESTIMONIOS DE CLIENTES
+        ============================================
+        - 3 testimonios de clientes satisfechos
+        - Cada uno con estrellas, cita, nombre y empresa
+        - Diseño de tarjeta con gradiente
+        ============================================
+    -->
     <section id="customers" class="py-20 bg-white">
         <div class="container mx-auto px-6">
+            
+            <!-- Encabezado -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">¿Qué dicen nuestros clientes?</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -336,10 +798,15 @@
                 </p>
             </div>
 
+            <!-- Grid de 3 testimonios -->
             <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Testimonio 1 -->
                 <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <!-- Estrellas de calificación (5 estrellas) -->
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
+                            <!-- SVG de estrella repetido 5 veces -->
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -347,10 +814,13 @@
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         </div>
                     </div>
+                    <!-- Cita del cliente -->
                     <p class="text-gray-700 mb-6 italic">
                         "Desde que implementamos Reparto de Agua, nuestra eficiencia aumentó un 45%. El sistema es muy fácil de usar y el soporte es excelente."
                     </p>
+                    <!-- Info del cliente -->
                     <div class="flex items-center">
+                        <!-- Avatar con iniciales -->
                         <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
                             JM
                         </div>
@@ -361,6 +831,7 @@
                     </div>
                 </div>
 
+                <!-- Testimonio 2 -->
                 <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 shadow-lg hover-lift">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
@@ -385,6 +856,7 @@
                     </div>
                 </div>
 
+                <!-- Testimonio 3 -->
                 <div class="bg-gradient-to-br from-cyan-50 to-white rounded-2xl p-8 shadow-lg hover-lift">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
@@ -412,9 +884,19 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- 
+        ============================================
+        SECCIÓN: CONTACTO
+        ============================================
+        - Información de contacto (email, whatsapp, dirección)
+        - Formulario para solicitar demo
+        - Fondo con gradiente azul
+        ============================================
+    -->
     <section id="contact" class="py-20 gradient-bg text-white">
         <div class="container mx-auto px-6">
+            
+            <!-- Encabezado -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Contacto</h2>
                 <p class="text-xl text-blue-100 max-w-2xl mx-auto">
@@ -422,8 +904,13 @@
                 </p>
             </div>
 
+            <!-- Grid de 2 columnas: Info + Formulario -->
             <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                
+                <!-- COLUMNA IZQUIERDA: Información de contacto -->
                 <div class="space-y-6">
+                    
+                    <!-- Email -->
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -438,20 +925,23 @@
                         </div>
                     </div>
 
+                    <!-- WhatsApp -->
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            <!-- Icono de WhatsApp -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
                         </div>
                         <div>
                             <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
-                            <a href="https://wa.me/5493765026080" class="text-blue-100 hover:text-white transition">
+                            <a href="https://wa.me/5493765026080" target="_blank" class="text-blue-100 hover:text-white transition">
                                 +54 9 3765 02-6080
                             </a>
                         </div>
                     </div>
 
+                    <!-- Dirección (de Instagram: Alvear 1620, Posadas, Misiones 3300) -->
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -469,6 +959,23 @@
                         </div>
                     </div>
 
+                    <!-- Instagram -->
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <!-- Icono de Instagram -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Instagram</h3>
+                            <a href="https://www.instagram.com/repartoagua/" target="_blank" class="text-blue-100 hover:text-white transition">
+                                @repartoagua
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sitio Web -->
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -477,28 +984,35 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-lg mb-1">Sitio Web</h3>
-                            <a href="https://www.startapp.com.ar" target="_blank" class="text-blue-100 hover:text-white transition">
-                                www.startapp.com.ar
+                            <a href="https://www.repartodeagua.com" target="_blank" class="text-blue-100 hover:text-white transition">
+                                www.repartodeagua.com
                             </a>
                         </div>
                     </div>
                 </div>
 
+                <!-- COLUMNA DERECHA: Formulario de contacto -->
                 <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8">
                     <h3 class="text-2xl font-bold mb-6">Solicita una Demo</h3>
-                    <form class="space-y-4">
+                    <!-- data-contact-form: Atributo para identificar el formulario en JavaScript -->
+                    <form data-contact-form class="space-y-4">
+                        <!-- Campo: Nombre -->
                         <div>
-                            <input type="text" placeholder="Nombre completo" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <input type="text" name="nombre" placeholder="Nombre completo" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
                         </div>
+                        <!-- Campo: Email -->
                         <div>
-                            <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
                         </div>
+                        <!-- Campo: Teléfono -->
                         <div>
-                            <input type="tel" placeholder="Teléfono" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
+                            <input type="tel" name="telefono" placeholder="Teléfono" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50">
                         </div>
+                        <!-- Campo: Mensaje -->
                         <div>
-                            <textarea rows="4" placeholder="Mensaje" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50"></textarea>
+                            <textarea rows="4" name="mensaje" placeholder="Mensaje" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50"></textarea>
                         </div>
+                        <!-- Botón de envío -->
                         <button type="submit" class="w-full px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg">
                             Enviar Mensaje
                         </button>
@@ -508,86 +1022,106 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 
+        ============================================
+        FOOTER (PIE DE PÁGINA)
+        ============================================
+        - Logo y descripción
+        - Enlaces a secciones
+        - Información de contacto
+        - Copyright y créditos
+        ============================================
+    -->
     <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="container mx-auto px-6">
+            
+            <!-- Grid de 4 columnas -->
             <div class="grid md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Columna 1: Logo y descripción -->
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                        </svg>
-                        <span class="text-xl font-bold text-white">Reparto de Agua</span>
+                        <!-- Logo oficial en el footer -->
+                        <img src="https://www.repartodeagua.com/img/home/logo-h.png" 
+                             alt="Logo Reparto de Agua" 
+                             class="h-8 w-auto brightness-0 invert">
                     </div>
                     <p class="text-sm">
-                        La solución más eficaz para la gestión de distribuidoras de agua y soda en Argentina.
+                        Software de gestión para distribuidoras de agua y soda. Aumentá la eficiencia de tu negocio.
                     </p>
+                    <!-- Iconos de redes sociales -->
+                    <div class="flex space-x-4 mt-4">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/repartoagua/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5493765026080" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
+                <!-- Columna 2: Enlaces del Producto -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Producto</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#features" class="hover:text-primary transition">Características</a></li>
-                        <li><a href="#benefits" class="hover:text-primary transition">Beneficios</a></li>
-                        <li><a href="#customers" class="hover:text-primary transition">Testimonios</a></li>
+                        <li><a href="#features" class="footer-link">Características</a></li>
+                        <li><a href="#benefits" class="footer-link">Beneficios</a></li>
+                        <li><a href="#customers" class="footer-link">Testimonios</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 3: Enlaces de la Empresa -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Empresa</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="https://www.startapp.com.ar" class="hover:text-primary transition">Sobre Nosotros</a></li>
-                        <li><a href="#contact" class="hover:text-primary transition">Contacto</a></li>
-                        <li><a href="https://www.repartodeagua.com/privacypolicy.html" class="hover:text-primary transition">Política de Privacidad</a></li>
+                        <li><a href="https://www.startapp.com.ar" target="_blank" class="footer-link">Sobre Nosotros</a></li>
+                        <li><a href="#contact" class="footer-link">Contacto</a></li>
+                        <li><a href="https://www.repartodeagua.com/privacypolicy.html" target="_blank" class="footer-link">Política de Privacidad</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 4: Información de Contacto -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Contacto</h4>
                     <ul class="space-y-2 text-sm">
+                        <li>Alvear 1460 Dpto 1</li>
                         <li>Posadas, Misiones</li>
                         <li>Argentina</li>
-                        <li><a href="tel:+5493765026080" class="hover:text-primary transition">+54 9 3765 02-6080</a></li>
-                        <li><a href="mailto:ventas@startapp.com.ar" class="hover:text-primary transition">ventas@startapp.com.ar</a></li>
+                        <li><a href="tel:+5493765026080" class="footer-link">+54 9 3765 02-6080</a></li>
+                        <li><a href="mailto:ventas@startapp.com.ar" class="footer-link">ventas@startapp.com.ar</a></li>
                     </ul>
                 </div>
             </div>
 
+            <!-- Línea divisoria y Copyright -->
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
                 <p>&copy; 2026 StartApp - Reparto de Agua v1.03. Todos los derechos reservados.</p>
                 <p class="mt-2">
                     Desarrollado por David Nicolas Pedernera | 
-                    <a href="tel:+5493764299365" class="hover:text-primary transition">+549 376 4299365</a> | 
-                    <a href="mailto:davidpedernera@gmail.com" class="hover:text-primary transition">davidpedernera@gmail.com</a>
+                    <a href="tel:+5493764299365" class="footer-link">+549 376 4299365</a> | 
+                    <a href="mailto:davidpedernera@gmail.com" class="footer-link">davidpedernera@gmail.com</a>
                 </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-    </script>
+    <!-- 
+        ============================================
+        JAVASCRIPT
+        ============================================
+        Archivo externo con funcionalidades:
+        - Smooth scroll para navegación
+        - Menú móvil
+        - Animaciones al scroll
+        - Validación de formulario
+        ============================================
+    -->
+    <script src="js/main.js"></script>
 </body>
 </html>

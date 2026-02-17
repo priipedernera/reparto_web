@@ -1,0 +1,525 @@
+/* 
+    ============================================
+    REPARTO DE AGUA - Estilos Personalizados
+    ============================================
+    
+    Este archivo contiene todos los estilos CSS adicionales
+    que complementan a Tailwind CSS. Está organizado en secciones:
+    
+    1. Importación de fuentes
+    2. Variables CSS (colores reutilizables)
+    3. Estilos base del documento
+    4. Gradientes de fondo
+    5. Efectos visuales
+    6. Animaciones
+    7. Estilos de Instagram
+    8. Navegación
+    9. Botones
+    10. Tarjetas (Cards)
+    11. Formularios
+    12. Footer
+    13. Utilidades
+    14. Responsive
+    15. Scrollbar personalizado
+    
+    ============================================
+*/
+
+
+/* ============================================
+   SECCIÓN 1: IMPORTACIÓN DE FUENTES
+   ============================================
+   Usamos la fuente "Inter" de Google Fonts
+   Es una fuente moderna, legible y profesional
+   Los pesos importados son: 300, 400, 500, 600, 700, 800
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ============================================
+   SECCIÓN 2: VARIABLES CSS (Custom Properties)
+   ============================================
+   Definimos colores que se pueden reutilizar en todo el sitio
+   
+   Sintaxis de uso: var(--nombre-variable)
+   Ejemplo: color: var(--color-primary);
+   
+   Esto hace más fácil cambiar los colores en todo el sitio
+   modificando solo un lugar (aquí)
+   ============================================ */
+:root {
+    /* ---- Colores principales de la marca ---- */
+    --color-primary: #0EA5E9;    /* Azul cielo - Color principal de la marca */
+    --color-secondary: #0284C7;  /* Azul más oscuro - Para contraste y botones secundarios */
+    --color-accent: #06B6D4;     /* Cyan/Turquesa - Para acentos y destacados */
+    
+    /* ---- Colores neutros ---- */
+    --color-white: #ffffff;      /* Blanco puro */
+    --color-gray-50: #f9fafb;    /* Gris muy claro - Fondos sutiles */
+    --color-gray-100: #f3f4f6;   /* Gris claro - Fondos alternos */
+    --color-gray-300: #d1d5db;   /* Gris medio - Bordes */
+    --color-gray-600: #4b5563;   /* Gris oscuro - Textos secundarios */
+    --color-gray-700: #374151;   /* Gris más oscuro - Textos */
+    --color-gray-800: #1f2937;   /* Casi negro - Títulos */
+    --color-gray-900: #111827;   /* Negro - Footer */
+}
+
+
+/* ============================================
+   SECCIÓN 3: ESTILOS BASE
+   ============================================
+   Estilos globales que aplican a todo el documento
+   ============================================ */
+body {
+    /* Aplicamos la fuente Inter a todo el sitio */
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* ============================================
+   SECCIÓN 4: GRADIENTES DE FONDO
+   ============================================
+   Fondos con degradé de colores para secciones destacadas
+   linear-gradient(ángulo, color-inicio, color-fin)
+   ============================================ */
+
+/* Gradiente principal azul (usado en hero y contacto) */
+.gradient-bg {
+    /* Degradé diagonal de azul claro a azul oscuro */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+/* Gradiente de Instagram (todos los colores del logo de Instagram) */
+.gradient-instagram {
+    /* Degradé que simula los colores del logo de Instagram */
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+}
+
+
+/* ============================================
+   SECCIÓN 5: EFECTOS VISUALES
+   ============================================
+   Efectos especiales para mejorar la experiencia visual
+   ============================================ */
+
+/* Efecto de cristal/vidrio esmerilado */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);   /* Fondo semi-transparente */
+    backdrop-filter: blur(10px);             /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px);     /* Soporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Efecto de elevación al pasar el mouse */
+.hover-lift {
+    /* Transición suave para el movimiento y sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    /* Al pasar el mouse: sube 8px y agrega sombra más intensa */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================
+   SECCIÓN 6: ANIMACIONES
+   ============================================
+   Animaciones CSS usando @keyframes
+   Cada @keyframes define los estados de la animación
+   Luego se aplica con la propiedad animation
+   ============================================ */
+
+/* ---- Animación de flotación ----
+   Hace que el elemento suba y baje suavemente como flotando
+   Usada en la ilustración del hero */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px);  /* Posición inicial y final */
+    }
+    50% { 
+        transform: translateY(-20px); /* A mitad del tiempo, sube 20px */
+    }
+}
+
+/* Clase para aplicar la animación de flotación */
+.float-animation {
+    animation: float 6s ease-in-out infinite; /* Duración 6s, suave, infinita */
+}
+
+
+/* ---- Animación de brillo pulsante ----
+   Hace un efecto de "glow" que pulsa
+   Como si brillara intermitentemente */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(14, 165, 233, 0.4); /* Brillo suave */
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(14, 165, 233, 0.6); /* Brillo más intenso */
+    }
+}
+
+/* Clase para aplicar el brillo pulsante */
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+
+/* ---- Animación de aparición desde abajo ----
+   El elemento aparece gradualmente subiendo desde abajo
+   Usado en elementos que se revelan al hacer scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;                    /* Comienza invisible */
+        transform: translateY(30px);   /* Comienza 30px abajo */
+    }
+    to {
+        opacity: 1;                    /* Termina visible */
+        transform: translateY(0);      /* Termina en su posición */
+    }
+}
+
+/* Clase para aplicar la animación fadeInUp */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+
+/* ============================================
+   SECCIÓN 7: ESTILOS DE INSTAGRAM
+   ============================================
+   Estilos específicos para la sección de Instagram
+   Incluye tarjetas de posts, botones y grids
+   ============================================ */
+
+/* Tarjeta de publicación de Instagram */
+.instagram-card {
+    /* Fondo con gradiente sutil blanco/gris */
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde gris sutil */
+    transition: all 0.3s ease;             /* Transición suave */
+}
+
+/* Efecto hover en tarjetas de Instagram */
+.instagram-card:hover {
+    transform: translateY(-5px);           /* Sube 5px */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
+}
+
+/* Icono con colores de Instagram usando texto con gradiente */
+.instagram-icon {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    -webkit-background-clip: text;         /* El gradiente se aplica al texto */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;  /* El texto es transparente para ver el gradiente */
+}
+
+/* Botón estilo Instagram (rosa/morado) */
+.instagram-btn {
+    background: linear-gradient(45deg, #E1306C, #C13584, #833AB4);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón de Instagram */
+.instagram-btn:hover {
+    background: linear-gradient(45deg, #833AB4, #C13584, #E1306C); /* Invierte los colores */
+    transform: scale(1.05); /* Aumenta 5% de tamaño */
+}
+
+
+/* ---- Grid de publicaciones de Instagram ----
+   Layout de cuadrícula para mostrar posts */
+.instagram-grid {
+    display: grid;                         /* Usamos CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 8px;                              /* Espacio entre posts */
+}
+
+/* En móviles: 2 columnas en lugar de 3 */
+@media (max-width: 640px) {
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Contenedor de cada post de Instagram */
+.instagram-post {
+    position: relative;       /* Para posicionar el overlay encima */
+    aspect-ratio: 1;          /* Siempre cuadrado */
+    overflow: hidden;         /* Oculta lo que sobresale */
+    border-radius: 8px;       /* Bordes redondeados */
+    cursor: pointer;          /* Cursor de mano al pasar */
+}
+
+/* Imagen dentro del post */
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* La imagen cubre todo sin deformarse */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto zoom al pasar el mouse sobre la imagen */
+.instagram-post:hover img {
+    transform: scale(1.1);    /* Aumenta 10% */
+}
+
+/* Overlay oscuro que aparece al hacer hover */
+.instagram-post-overlay {
+    position: absolute;
+    inset: 0;                 /* Cubre toda la tarjeta */
+    background: rgba(0, 0, 0, 0.5); /* Negro semi-transparente */
+    opacity: 0;               /* Inicialmente invisible */
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mostrar el overlay al hacer hover */
+.instagram-post:hover .instagram-post-overlay {
+    opacity: 1;
+}
+
+
+/* ============================================
+   SECCIÓN 8: NAVEGACIÓN
+   ============================================
+   Estilos para los enlaces del menú de navegación
+   ============================================ */
+
+/* Enlace de navegación */
+.nav-link {
+    position: relative;                     /* Para el pseudo-elemento ::after */
+    font-weight: 500;                       /* Peso medio */
+    color: var(--color-gray-700);           /* Color gris oscuro */
+    transition: color 0.3s ease;
+}
+
+/* Línea decorativa debajo del enlace (inicialmente oculta) */
+.nav-link::after {
+    content: '';                            /* Elemento vacío necesario */
+    position: absolute;
+    bottom: -4px;                           /* 4px debajo del texto */
+    left: 0;
+    width: 0;                               /* Ancho inicial: 0 */
+    height: 2px;                            /* Alto: 2px */
+    background: var(--color-primary);       /* Color azul */
+    transition: width 0.3s ease;            /* Animación suave del ancho */
+}
+
+/* Efecto hover: cambio de color */
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+/* Efecto hover: la línea se expande */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* ============================================
+   SECCIÓN 9: BOTONES
+   ============================================
+   Estilos reutilizables para botones
+   ============================================ */
+
+/* Botón principal (blanco con texto azul) */
+.btn-primary {
+    background: var(--color-white);
+    color: var(--color-primary);
+    padding: 1rem 2rem;                     /* Espaciado interno */
+    border-radius: 0.5rem;                  /* Bordes redondeados */
+    font-weight: 600;                       /* Texto semi-bold */
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background: var(--color-gray-100);      /* Fondo gris claro */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+/* Botón outline (transparente con borde blanco) */
+.btn-outline {
+    background: transparent;
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    border: 2px solid var(--color-white);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);   /* Fondo ligeramente visible */
+}
+
+
+/* ============================================
+   SECCIÓN 10: TARJETAS (CARDS)
+   ============================================
+   Estilos para los diferentes tipos de tarjetas
+   ============================================ */
+
+/* Tarjeta de características */
+.feature-card {
+    background: linear-gradient(135deg, #EBF8FF 0%, #E0F7FA 100%); /* Gradiente azul claro */
+    border-radius: 1rem;                    /* Bordes muy redondeados */
+    padding: 2rem;                          /* Espaciado interno */
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);            /* Sube al hacer hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Tarjeta de beneficios */
+.benefit-card {
+    background: var(--color-white);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Tarjeta de testimonios */
+.testimonial-card {
+    background: linear-gradient(135deg, #EBF8FF 0%, var(--color-white) 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================
+   SECCIÓN 11: FORMULARIOS
+   ============================================
+   Estilos para campos de formulario
+   Usados principalmente en la sección de contacto
+   ============================================ */
+
+/* Campo de entrada (input/textarea) */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);   /* Fondo semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-white);              /* Texto blanco */
+    transition: all 0.3s ease;
+}
+
+/* Placeholder (texto de ayuda) */
+.form-input::placeholder {
+    color: rgba(186, 230, 253, 0.8);        /* Azul claro semi-transparente */
+}
+
+/* Estado de foco (cuando el usuario hace clic en el campo) */
+.form-input:focus {
+    outline: none;                          /* Quita el borde por defecto */
+    ring: 2px;
+    ring-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);  /* Fondo un poco más visible */
+}
+
+
+/* ============================================
+   SECCIÓN 12: FOOTER
+   ============================================
+   Estilos para el pie de página
+   ============================================ */
+
+/* Enlaces del footer */
+.footer-link {
+    color: var(--color-gray-300);           /* Gris claro */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-primary);            /* Azul al hacer hover */
+}
+
+
+/* ============================================
+   SECCIÓN 13: UTILIDADES
+   ============================================
+   Clases de utilidad reutilizables
+   ============================================ */
+
+/* Texto con gradiente (efecto de texto colorido) */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sombras predefinidas */
+.shadow-soft {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-medium {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================
+   SECCIÓN 14: RESPONSIVE
+   ============================================
+   Media queries para ajustar estilos en diferentes
+   tamaños de pantalla
+   ============================================ */
+
+/* Pantallas de 768px o menos (tablets y móviles) */
+@media (max-width: 768px) {
+    /* Clase para mostrar el menú móvil cuando está abierto */
+    .mobile-menu-open .mobile-menu {
+        display: flex;
+    }
+}
+
+
+/* ============================================
+   SECCIÓN 15: SCROLLBAR PERSONALIZADO
+   ============================================
+   Estilos para la barra de desplazamiento
+   Solo funciona en navegadores basados en WebKit (Chrome, Edge, Safari)
+   ============================================ */
+
+/* Ancho de la barra de scroll */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Fondo de la barra (el "track") */
+::-webkit-scrollbar-track {
+    background: var(--color-gray-100);      /* Gris claro */
+}
+
+/* El "thumb" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);       /* Azul */
+    border-radius: 5px;                     /* Bordes redondeados */
+}
+
+/* El thumb al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);     /* Azul más oscuro */
+}
