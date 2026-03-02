@@ -10,31 +10,49 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Lato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
         }
         
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --bg-card-hover: #222222;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e5e5;
-            --text-muted: #a3a3a3;
-            --accent-blue: #3b82f6;
-            --accent-blue-hover: #2563eb;
-            --accent-green: #22c55e;
-            --border-color: #2a2a2a;
+            /* Paleta Celeste #147a96 */
+            --celeste-50: #e8f4f7;
+            --celeste-100: #d1e9ef;
+            --celeste-200: #a3d3df;
+            --celeste-300: #75bdcf;
+            --celeste-400: #47a7bf;
+            --celeste-500: #147a96;
+            --celeste-600: #106278;
+            --celeste-700: #0c4a5a;
+            --celeste-800: #08313c;
+            --celeste-900: #04191e;
+            
+            /* Fondos claros */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --bg-accent: #e8f4f7;
+            
+            /* Textos oscuros */
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            
+            /* Acentos celeste */
+            --accent-celeste: #147a96;
+            --accent-celeste-hover: #106278;
+            --accent-green: #059669;
+            --border-color: #e2e8f0;
         }
         
         body {
@@ -42,24 +60,28 @@
             color: var(--text-primary);
         }
         
-        .card-dark {
+        .card-light {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
         
-        .card-dark:hover {
+        .card-light:hover {
             background-color: var(--bg-card-hover);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(20, 122, 150, 0.15);
         }
         
         .gradient-hero {
-            background: linear-gradient(180deg, #0a0a0a 0%, #111827 50%, #0a0a0a 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #e8f4f7 50%, #ffffff 100%);
         }
         
         .gradient-section {
-            background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+        
+        .gradient-celeste {
+            background: linear-gradient(135deg, #147a96 0%, #1a9ab8 100%);
         }
         
         .animate-float {
@@ -83,33 +105,34 @@
         }
         
         .nav-scrolled {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         
         .btn-primary {
-            background: var(--accent-blue);
+            background: var(--accent-celeste);
             color: white;
             transition: all 0.3s ease;
         }
         
         .btn-primary:hover {
-            background: var(--accent-blue-hover);
+            background: var(--accent-celeste-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(20, 122, 150, 0.3);
         }
         
         .btn-outline {
-            border: 2px solid var(--text-muted);
-            color: var(--text-primary);
+            border: 2px solid var(--accent-celeste);
+            color: var(--accent-celeste);
             transition: all 0.3s ease;
         }
         
         .btn-outline:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent-celeste-hover);
+            color: white;
+            background: var(--accent-celeste);
         }
         
         .icon-box {
@@ -122,12 +145,12 @@
             font-size: 22px;
         }
         
-        .glow-blue {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        .glow-celeste {
+            box-shadow: 0 0 30px rgba(20, 122, 150, 0.2);
         }
         
         .testimonial-card {
-            background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
             border: 1px solid var(--border-color);
         }
         
@@ -137,21 +160,35 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
+            background: var(--celeste-300);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #404040;
+            background: var(--celeste-400);
         }
         
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+        
+        /* Estilos para cards en modo claro */
+        .card-feature {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .card-feature:hover {
+            border-color: var(--celeste-300);
+            box-shadow: 0 10px 40px rgba(20, 122, 150, 0.12);
+            transform: translateY(-4px);
         }
     </style>
 </head>
@@ -160,46 +197,45 @@
     <!-- ============================================
          NAVEGACIÓN
          ============================================ -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-tint text-xl text-white"></i>
-                    </div>
-                    <span class="text-lg font-bold text-white">Reparto de Agua</span>
+                    <img src="https://www.repartodeagua.com/img/home/logo-h.png" 
+                         alt="Logo Reparto de Agua" 
+                         class="h-10 w-auto">
                 </a>
                 
                 <!-- Menú Desktop -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="text-gray-300 hover:text-white font-medium transition-colors">Inicio</a>
-                    <a href="#caracteristicas" class="text-gray-300 hover:text-white font-medium transition-colors">Características</a>
-                    <a href="#funcionalidades" class="text-gray-300 hover:text-white font-medium transition-colors">Funcionalidades</a>
-                    <a href="#app" class="text-gray-300 hover:text-white font-medium transition-colors">App Móvil</a>
-                    <a href="#sistema" class="text-gray-300 hover:text-white font-medium transition-colors">Sistema PC</a>
-                    <a href="#beneficios" class="text-gray-300 hover:text-white font-medium transition-colors">Beneficios</a>
+                    <a href="#inicio" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">Inicio</a>
+                    <a href="#caracteristicas" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">Características</a>
+                    <a href="#funcionalidades" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">Funcionalidades</a>
+                    <a href="#app" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">App Móvil</a>
+                    <a href="#sistema" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">Sistema PC</a>
+                    <a href="#beneficios" class="text-gray-600 hover:text-[#147a96] font-medium transition-colors">Beneficios</a>
                     <a href="#contacto" class="btn-primary px-5 py-2 rounded-lg font-semibold">
                         Contactar
                     </a>
                 </div>
                 
                 <!-- Botón Menú Móvil -->
-                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         
         <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-white/10">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 py-4 space-y-3">
-                <a href="#inicio" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">Inicio</a>
-                <a href="#caracteristicas" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">Características</a>
-                <a href="#funcionalidades" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">Funcionalidades</a>
-                <a href="#app" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">App Móvil</a>
-                <a href="#sistema" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">Sistema PC</a>
-                <a href="#beneficios" class="block text-gray-300 hover:text-white font-medium py-2 mobile-nav-link">Beneficios</a>
+                <a href="#inicio" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">Inicio</a>
+                <a href="#caracteristicas" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">Características</a>
+                <a href="#funcionalidades" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">Funcionalidades</a>
+                <a href="#app" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">App Móvil</a>
+                <a href="#sistema" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">Sistema PC</a>
+                <a href="#beneficios" class="block text-gray-600 hover:text-[#147a96] font-medium py-2 mobile-nav-link">Beneficios</a>
                 <a href="#contacto" class="block btn-primary px-5 py-3 rounded-lg font-semibold text-center mt-4">Contactar</a>
             </div>
         </div>
@@ -208,19 +244,19 @@
     <!-- ============================================
          HERO SECTION
          ============================================ -->
-    <section id="inicio" class="gradient-hero min-h-screen flex items-center pt-16">
+    <section id="inicio" class="bg-white min-h-screen flex items-center pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Texto Hero -->
                 <div>
-                    <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-medium mb-6">
                         <i class="fas fa-star mr-2"></i> #1 en gestión de distribuidoras
                     </span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800">
                         La solución más eficaz para 
-                        <span class="text-blue-400">distribuidoras de agua y soda</span>
+                        <span class="text-[#147a96]">distribuidoras de agua y soda</span>
                     </h1>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
                         Sistema móvil completo para administrar ventas, cobranzas y distribución. 
                         Diseñado especialmente para empresas de agua y soda.
                     </p>
@@ -234,18 +270,18 @@
                     </div>
                     
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
                         <div>
-                            <div class="text-3xl font-bold text-white">500+</div>
-                            <div class="text-gray-400 text-sm">Empresas activas</div>
+                            <div class="text-3xl font-bold text-[#147a96]">500+</div>
+                            <div class="text-gray-500 text-sm">Empresas activas</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-bold text-white">50k+</div>
-                            <div class="text-gray-400 text-sm">Clientes gestionados</div>
+                            <div class="text-3xl font-bold text-[#147a96]">50k+</div>
+                            <div class="text-gray-500 text-sm">Clientes gestionados</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-bold text-white">4.8★</div>
-                            <div class="text-gray-400 text-sm">Rating Play Store</div>
+                            <div class="text-3xl font-bold text-[#147a96]">4.8★</div>
+                            <div class="text-gray-500 text-sm">Rating Play Store</div>
                         </div>
                     </div>
                 </div>
@@ -253,15 +289,15 @@
                 <!-- Imagen Hero -->
                 <div class="relative">
                     <div class="animate-float">
-                        <div class="card-dark rounded-2xl p-6 glow-blue">
+                        <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                             <img src="https://www.repartodeagua.com/img/home/home_tablet.png" alt="App Reparto de Agua" class="w-full rounded-xl">
                         </div>
                     </div>
                     <!-- Elementos decorativos -->
-                    <div class="absolute -bottom-4 -left-4 bg-blue-600 rounded-xl p-3 shadow-xl hidden lg:block">
+                    <div class="absolute -bottom-4 -left-4 bg-[#147a96] rounded-xl p-3 shadow-xl hidden lg:block">
                         <i class="fas fa-mobile-alt text-white text-2xl"></i>
                     </div>
-                    <div class="absolute -top-4 -right-4 bg-green-600 rounded-xl p-3 shadow-xl hidden lg:block">
+                    <div class="absolute -top-4 -right-4 bg-emerald-500 rounded-xl p-3 shadow-xl hidden lg:block">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
                 </div>
@@ -275,83 +311,83 @@
     <!-- ============================================
          SECCIÓN CARACTERÍSTICAS
          ============================================ -->
-    <section id="caracteristicas" class="py-24 bg-black">
+    <section id="caracteristicas" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     CARACTERÍSTICAS
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Todo lo que necesitas en un solo lugar
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Pensada especialmente para dueños de distribuidoras de agua y soda
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Característica 1 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-blue-600/20 text-blue-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-[#147a96]/10 text-[#147a96] mb-5">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">App Móvil Android</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">App Móvil Android</h3>
+                    <p class="text-gray-600">
                         Aplicación nativa para Android. Funciona sin internet para que tus repartidores nunca pierdan información.
                     </p>
                 </div>
                 
                 <!-- Característica 2 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-green-600/20 text-green-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-emerald-500/10 text-emerald-600 mb-5">
                         <i class="fas fa-desktop"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sistema de Gestión PC</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sistema de Gestión PC</h3>
+                    <p class="text-gray-600">
                         Gestiona clientes, rutas, productos, envases, saldos y equipos en comodato desde tu computadora.
                     </p>
                 </div>
                 
                 <!-- Característica 3 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-purple-600/20 text-purple-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-[#147a96]/10 text-[#106278] mb-5">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Monitor Web</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Monitor Web</h3>
+                    <p class="text-gray-600">
                         Seguimiento GPS en tiempo real, mapa de clientes, ventas y gestión de empleados desde cualquier lugar.
                     </p>
                 </div>
                 
                 <!-- Característica 4 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-orange-600/20 text-orange-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-amber-500/10 text-amber-600 mb-5">
                         <i class="fas fa-route"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Armado de Rutas</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Armado de Rutas</h3>
+                    <p class="text-gray-600">
                         Crea repartos por zonas y días de visita. Arma repartos casuales por día y repartidor fácilmente.
                     </p>
                 </div>
                 
                 <!-- Característica 5 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-red-600/20 text-red-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-rose-500/10 text-rose-600 mb-5">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Facturación Electrónica</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Facturación Electrónica</h3>
+                    <p class="text-gray-600">
                         Emite facturas electrónicas automáticas o individuales. Integrado con los sistemas tributarios.
                     </p>
                 </div>
                 
                 <!-- Característica 6 -->
-                <div class="card-dark rounded-xl p-6 section-fade">
-                    <div class="icon-box bg-teal-600/20 text-teal-400 mb-5">
+                <div class="card-feature p-6 section-fade">
+                    <div class="icon-box bg-[#147a96]/10 text-[#147a96] mb-5">
                         <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Informes y Reportes</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Informes y Reportes</h3>
+                    <p class="text-gray-600">
                         Accede a infinidad de informes para tomar mejores decisiones y controlar tu negocio.
                     </p>
                 </div>
@@ -365,16 +401,16 @@
     <!-- ============================================
          SECCIÓN ANÁLISIS MULTINIVEL
          ============================================ -->
-    <section id="analisis" class="py-24 bg-black">
+    <section id="analisis" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-purple-600/20 border border-purple-500/30 text-purple-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     ANÁLISIS MULTINIVEL
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Control total de tu distribuidora
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Visualiza la información desde lo general hasta el detalle específico
                 </p>
             </div>
@@ -384,47 +420,47 @@
                 <div class="section-fade">
                     <div class="flex flex-col items-center space-y-4">
                         <!-- Nivel 1: Total Empresa -->
-                        <div class="card-dark rounded-xl p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-purple-500">
-                            <div class="w-14 h-14 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-industry text-purple-400 text-2xl"></i>
+                        <div class="card-feature p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-[#147a96]">
+                            <div class="w-14 h-14 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-industry text-[#147a96] text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">Total Empresa</h4>
-                                <p class="text-gray-400 text-sm">Visión Global de Activos</p>
+                                <h4 class="text-gray-800 font-bold text-lg">Total Empresa</h4>
+                                <p class="text-gray-500 text-sm">Visión Global de Activos</p>
                             </div>
                         </div>
                         
                         <!-- Flecha 1 -->
                         <div class="flex flex-col items-center">
-                            <div class="w-0.5 h-6 bg-purple-500"></div>
-                            <i class="fas fa-chevron-down text-purple-400 text-xl"></i>
+                            <div class="w-0.5 h-6 bg-[#147a96]"></div>
+                            <i class="fas fa-chevron-down text-[#147a96] text-xl"></i>
                         </div>
                         
                         <!-- Nivel 2: Reparto Específico -->
-                        <div class="card-dark rounded-xl p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-purple-500">
-                            <div class="w-14 h-14 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-truck text-purple-400 text-2xl"></i>
+                        <div class="card-feature p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-[#147a96]">
+                            <div class="w-14 h-14 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-truck text-[#147a96] text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">Reparto Específico</h4>
-                                <p class="text-gray-400 text-sm">Análisis por Zona/Ruta</p>
+                                <h4 class="text-gray-800 font-bold text-lg">Reparto Específico</h4>
+                                <p class="text-gray-500 text-sm">Análisis por Zona/Ruta</p>
                             </div>
                         </div>
                         
                         <!-- Flecha 2 -->
                         <div class="flex flex-col items-center">
-                            <div class="w-0.5 h-6 bg-purple-500"></div>
-                            <i class="fas fa-chevron-down text-purple-400 text-xl"></i>
+                            <div class="w-0.5 h-6 bg-[#147a96]"></div>
+                            <i class="fas fa-chevron-down text-[#147a96] text-xl"></i>
                         </div>
                         
                         <!-- Nivel 3: Cliente Individual -->
-                        <div class="card-dark rounded-xl p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-purple-500">
-                            <div class="w-14 h-14 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-user-circle text-purple-400 text-2xl"></i>
+                        <div class="card-feature p-5 w-full max-w-sm flex items-center space-x-4 border-l-4 border-[#147a96]">
+                            <div class="w-14 h-14 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-circle text-[#147a96] text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">Cliente Individual</h4>
-                                <p class="text-gray-400 text-sm">Cliente con préstamos vencidos</p>
+                                <h4 class="text-gray-800 font-bold text-lg">Cliente Individual</h4>
+                                <p class="text-gray-500 text-sm">Cliente con préstamos vencidos</p>
                             </div>
                         </div>
                     </div>
@@ -432,36 +468,36 @@
                 
                 <!-- Tarjeta Acción Inmediata -->
                 <div class="section-fade">
-                    <div class="card-dark rounded-2xl p-8 border border-blue-500/30 glow-blue">
+                    <div class="card-feature rounded-2xl p-8 border-2 border-[#147a96]/30 shadow-lg">
                         <div class="flex items-center space-x-4 mb-6">
-                            <div class="w-14 h-14 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                                <i class="fas fa-crosshairs text-blue-400 text-2xl"></i>
+                            <div class="w-14 h-14 bg-[#147a96]/10 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-crosshairs text-[#147a96] text-2xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white">Acción Inmediata</h3>
+                            <h3 class="text-2xl font-bold text-gray-800">Acción Inmediata</h3>
                         </div>
-                        <p class="text-gray-300 text-lg leading-relaxed">
+                        <p class="text-gray-600 text-lg leading-relaxed">
                             Detecte a los clientes con más activos improductivos que generan un alto porcentaje de pérdida. 
                             Genere reportes automáticos para que el supervisor ataque el problema puntual.
                         </p>
                         
                         <!-- Características adicionales -->
-                        <div class="mt-8 pt-6 border-t border-white/10">
+                        <div class="mt-8 pt-6 border-t border-gray-200">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex items-center space-x-3">
-                                    <i class="fas fa-check-circle text-green-500 text-lg"></i>
-                                    <span class="text-gray-300 text-sm">Reportes automáticos</span>
+                                    <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                                    <span class="text-gray-600 text-sm">Reportes automáticos</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <i class="fas fa-check-circle text-green-500 text-lg"></i>
-                                    <span class="text-gray-300 text-sm">Alertas en tiempo real</span>
+                                    <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                                    <span class="text-gray-600 text-sm">Alertas en tiempo real</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <i class="fas fa-check-circle text-green-500 text-lg"></i>
-                                    <span class="text-gray-300 text-sm">Control de pérdidas</span>
+                                    <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                                    <span class="text-gray-600 text-sm">Control de pérdidas</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <i class="fas fa-check-circle text-green-500 text-lg"></i>
-                                    <span class="text-gray-300 text-sm">Análisis detallado</span>
+                                    <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                                    <span class="text-gray-600 text-sm">Análisis detallado</span>
                                 </div>
                             </div>
                         </div>
@@ -477,82 +513,82 @@
     <!-- ============================================
          SECCIÓN CONTROL DE ACTIVOS
          ============================================ -->
-    <section id="control-activos" class="py-24 gradient-section">
+    <section id="control-activos" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-red-600/20 border border-red-500/30 text-red-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-rose-500/10 border border-rose-400/30 text-rose-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     CONTROL DE ACTIVOS
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Improductivos vs Vencidos
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Detecta y gestiona los envases que no están generando valor
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Tarjeta Envases Improductivos -->
-                <div class="card-dark rounded-2xl p-8 section-fade border-l-4 border-red-500">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                        <div class="w-10 h-10 bg-red-600/20 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-exclamation-triangle text-red-400"></i>
+                <div class="card-feature rounded-2xl p-8 section-fade border-l-4 border-rose-500">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <div class="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-exclamation-triangle text-rose-500"></i>
                         </div>
                         Envases Improductivos
                     </h3>
                     
                     <div class="flex justify-center mb-6">
-                        <div class="relative bg-white/5 rounded-xl p-6">
+                        <div class="relative bg-gray-100 rounded-xl p-6">
                             <div class="flex items-end space-x-3">
                                 <div class="text-5xl text-gray-400">
                                     <i class="fas fa-home"></i>
                                 </div>
                                 <div class="flex space-x-1">
-                                    <i class="fas fa-tint text-blue-400 text-2xl"></i>
-                                    <i class="fas fa-tint text-blue-400 text-2xl"></i>
-                                    <i class="fas fa-tint text-blue-400 text-2xl"></i>
+                                    <i class="fas fa-tint text-[#147a96] text-2xl"></i>
+                                    <i class="fas fa-tint text-[#147a96] text-2xl"></i>
+                                    <i class="fas fa-tint text-[#147a96] text-2xl"></i>
                                 </div>
                             </div>
-                            <div class="absolute -bottom-2 -right-2 bg-red-500 rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 bg-rose-500 rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
                                 <i class="fas fa-exclamation text-white text-sm"></i>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="text-gray-300 leading-relaxed">
-                        <span class="font-bold text-red-400">El Coeficiente de Rotación.</span> 
+                    <div class="text-gray-600 leading-relaxed">
+                        <span class="font-bold text-rose-500">El Coeficiente de Rotación.</span> 
                         Cliente con exceso de stock para su consumo real. El sistema marca en rojo si la rotación es inferior a 2 veces al mes.
                     </div>
                 </div>
                 
                 <!-- Tarjeta Préstamos Vencidos -->
-                <div class="card-dark rounded-2xl p-8 section-fade border-l-4 border-orange-500">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                        <div class="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-clock text-orange-400"></i>
+                <div class="card-feature rounded-2xl p-8 section-fade border-l-4 border-amber-500">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-clock text-amber-500"></i>
                         </div>
                         Préstamos Vencidos
                     </h3>
                     
                     <div class="flex justify-center mb-6">
-                        <div class="relative bg-white/5 rounded-xl p-6">
+                        <div class="relative bg-gray-100 rounded-xl p-6">
                             <div class="flex items-end space-x-3">
                                 <div class="text-5xl text-gray-400">
                                     <i class="fas fa-home"></i>
                                 </div>
                                 <div class="flex space-x-1">
-                                    <i class="fas fa-tint text-blue-400 text-2xl"></i>
-                                    <i class="fas fa-tint text-blue-400 text-2xl"></i>
+                                    <i class="fas fa-tint text-[#147a96] text-2xl"></i>
+                                    <i class="fas fa-tint text-[#147a96] text-2xl"></i>
                                 </div>
                             </div>
-                            <div class="absolute -bottom-2 -right-2 bg-orange-500 rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
+                            <div class="absolute -bottom-2 -right-2 bg-amber-500 rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
                                 <i class="fas fa-exclamation text-white text-sm"></i>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="text-gray-300 leading-relaxed">
-                        <span class="font-bold text-orange-400 italic">Alertas de Retiro.</span> 
+                    <div class="text-gray-600 leading-relaxed">
+                        <span class="font-bold text-amber-500 italic">Alertas de Retiro.</span> 
                         Envases entregados sin devolución de vacíos. Si pasa la fecha de vencimiento configurada (ej. 30 días), se genera una alerta automática para su retiro.
                     </div>
                 </div>
@@ -566,17 +602,17 @@
     <!-- ============================================
          SECCIÓN MÓDULO FRÍO/CALOR - TRAZABILIDAD
          ============================================ -->
-    <section id="trazabilidad" class="py-24 bg-black">
+    <section id="trazabilidad" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Encabezado -->
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     EQUIPOS FRÍO/CALOR
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Módulo Frío/Calor: Trazabilidad Total
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Gestione sus dispensers como máquinas únicas, no solo inventario
                 </p>
             </div>
@@ -584,15 +620,15 @@
             <!-- Dispenser central con ID -->
             <div class="flex justify-center mb-16 section-fade">
                 <div class="relative">
-                    <div class="card-dark rounded-2xl p-8 glow-blue">
+                    <div class="card-feature rounded-2xl p-8 shadow-lg border-2 border-[#147a96]/20">
                         <div class="text-center">
-                            <i class="fas fa-snowflake text-6xl text-cyan-400 mb-2"></i>
-                            <div class="text-white font-semibold">Dispenser</div>
+                            <i class="fas fa-snowflake text-6xl text-[#147a96] mb-2"></i>
+                            <div class="text-gray-800 font-semibold">Dispenser</div>
                         </div>
                     </div>
                     <!-- Etiqueta ID Serie -->
-                    <div class="absolute -top-3 -right-3 bg-blue-600 rounded-lg px-3 py-2 shadow-lg transform rotate-6">
-                        <div class="text-xs text-blue-200">ID: Serie</div>
+                    <div class="absolute -top-3 -right-3 bg-[#147a96] rounded-lg px-3 py-2 shadow-lg transform rotate-6">
+                        <div class="text-xs text-white/80">ID: Serie</div>
                         <div class="text-white font-bold">#99821</div>
                     </div>
                 </div>
@@ -604,72 +640,72 @@
                     
                     <!-- Paso 1: Depósito -->
                     <div class="flex flex-col items-center w-full lg:w-auto">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-500/30">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#147a96] to-[#106278] rounded-full flex items-center justify-center mb-4 shadow-lg shadow-[#147a96]/30">
                             <i class="fas fa-warehouse text-white text-2xl"></i>
                         </div>
-                        <div class="card-dark rounded-xl p-5 w-full lg:w-56 text-center">
-                            <h4 class="font-bold text-white mb-2">Depósito</h4>
-                            <p class="text-gray-400 text-sm">Ubicación Exacta (operativo, tránsito, reparación)</p>
+                        <div class="card-feature p-5 w-full lg:w-56 text-center">
+                            <h4 class="font-bold text-gray-800 mb-2">Depósito</h4>
+                            <p class="text-gray-500 text-sm">Ubicación Exacta (operativo, tránsito, reparación)</p>
                         </div>
                     </div>
                     
                     <!-- Flecha 1 -->
                     <div class="hidden lg:flex items-center px-4">
-                        <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400"></div>
-                        <i class="fas fa-chevron-right text-blue-400 text-lg -ml-1"></i>
+                        <div class="w-12 h-0.5 bg-gradient-to-r from-[#147a96] to-[#47a7bf]"></div>
+                        <i class="fas fa-chevron-right text-[#147a96] text-lg -ml-1"></i>
                     </div>
                     <div class="lg:hidden py-2">
-                        <i class="fas fa-chevron-down text-blue-400 text-xl"></i>
+                        <i class="fas fa-chevron-down text-[#147a96] text-xl"></i>
                     </div>
                     
                     <!-- Paso 2: Camión -->
                     <div class="flex flex-col items-center w-full lg:w-auto">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-500/30">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#147a96] to-[#106278] rounded-full flex items-center justify-center mb-4 shadow-lg shadow-[#147a96]/30">
                             <i class="fas fa-truck text-white text-2xl"></i>
                         </div>
-                        <div class="card-dark rounded-xl p-5 w-full lg:w-56 text-center">
-                            <h4 class="font-bold text-white mb-2">Camión</h4>
-                            <p class="text-gray-400 text-sm">Transporte seguro del equipo</p>
+                        <div class="card-feature p-5 w-full lg:w-56 text-center">
+                            <h4 class="font-bold text-gray-800 mb-2">Camión</h4>
+                            <p class="text-gray-500 text-sm">Transporte seguro del equipo</p>
                         </div>
                     </div>
                     
                     <!-- Flecha 2 -->
                     <div class="hidden lg:flex items-center px-4">
-                        <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400"></div>
-                        <i class="fas fa-chevron-right text-blue-400 text-lg -ml-1"></i>
+                        <div class="w-12 h-0.5 bg-gradient-to-r from-[#147a96] to-[#47a7bf]"></div>
+                        <i class="fas fa-chevron-right text-[#147a96] text-lg -ml-1"></i>
                     </div>
                     <div class="lg:hidden py-2">
-                        <i class="fas fa-chevron-down text-blue-400 text-xl"></i>
+                        <i class="fas fa-chevron-down text-[#147a96] text-xl"></i>
                     </div>
                     
                     <!-- Paso 3: Cliente -->
                     <div class="flex flex-col items-center w-full lg:w-auto">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-500/30">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#147a96] to-[#106278] rounded-full flex items-center justify-center mb-4 shadow-lg shadow-[#147a96]/30">
                             <i class="fas fa-home text-white text-2xl"></i>
                         </div>
-                        <div class="card-dark rounded-xl p-5 w-full lg:w-56 text-center">
-                            <h4 class="font-bold text-white mb-2">Cliente</h4>
-                            <p class="text-gray-400 text-sm">Historial Técnico (cambio de canilla, limpieza)</p>
+                        <div class="card-feature p-5 w-full lg:w-56 text-center">
+                            <h4 class="font-bold text-gray-800 mb-2">Cliente</h4>
+                            <p class="text-gray-500 text-sm">Historial Técnico (cambio de canilla, limpieza)</p>
                         </div>
                     </div>
                     
                     <!-- Flecha 3 -->
                     <div class="hidden lg:flex items-center px-4">
-                        <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400"></div>
-                        <i class="fas fa-chevron-right text-blue-400 text-lg -ml-1"></i>
+                        <div class="w-12 h-0.5 bg-gradient-to-r from-[#147a96] to-[#47a7bf]"></div>
+                        <i class="fas fa-chevron-right text-[#147a96] text-lg -ml-1"></i>
                     </div>
                     <div class="lg:hidden py-2">
-                        <i class="fas fa-chevron-down text-blue-400 text-xl"></i>
+                        <i class="fas fa-chevron-down text-[#147a96] text-xl"></i>
                     </div>
                     
                     <!-- Paso 4: Taller/Baja -->
                     <div class="flex flex-col items-center w-full lg:w-auto">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-500/30">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#147a96] to-[#106278] rounded-full flex items-center justify-center mb-4 shadow-lg shadow-[#147a96]/30">
                             <i class="fas fa-tools text-white text-2xl"></i>
                         </div>
-                        <div class="card-dark rounded-xl p-5 w-full lg:w-56 text-center">
-                            <h4 class="font-bold text-white mb-2">Taller/Baja</h4>
-                            <p class="text-gray-400 text-sm">Gestión de Vida Útil y baja de equipos</p>
+                        <div class="card-feature p-5 w-full lg:w-56 text-center">
+                            <h4 class="font-bold text-gray-800 mb-2">Taller/Baja</h4>
+                            <p class="text-gray-500 text-sm">Gestión de Vida Útil y baja de equipos</p>
                         </div>
                     </div>
                     
@@ -678,26 +714,26 @@
             
             <!-- Características adicionales -->
             <div class="grid md:grid-cols-3 gap-6 mt-16 section-fade">
-                <div class="card-dark rounded-xl p-6 text-center">
-                    <div class="w-14 h-14 bg-cyan-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-qrcode text-cyan-400 text-2xl"></i>
+                <div class="card-feature p-6 text-center">
+                    <div class="w-14 h-14 bg-[#147a96]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-qrcode text-[#147a96] text-2xl"></i>
                     </div>
-                    <h4 class="text-white font-semibold mb-2">Identificación Única</h4>
-                    <p class="text-gray-400 text-sm">Cada equipo con número de serie trazable</p>
+                    <h4 class="text-gray-800 font-semibold mb-2">Identificación Única</h4>
+                    <p class="text-gray-500 text-sm">Cada equipo con número de serie trazable</p>
                 </div>
-                <div class="card-dark rounded-xl p-6 text-center">
-                    <div class="w-14 h-14 bg-cyan-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-history text-cyan-400 text-2xl"></i>
+                <div class="card-feature p-6 text-center">
+                    <div class="w-14 h-14 bg-[#147a96]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-history text-[#147a96] text-2xl"></i>
                     </div>
-                    <h4 class="text-white font-semibold mb-2">Historial Completo</h4>
-                    <p class="text-gray-400 text-sm">Registro de todas las intervenciones técnicas</p>
+                    <h4 class="text-gray-800 font-semibold mb-2">Historial Completo</h4>
+                    <p class="text-gray-500 text-sm">Registro de todas las intervenciones técnicas</p>
                 </div>
-                <div class="card-dark rounded-xl p-6 text-center">
-                    <div class="w-14 h-14 bg-cyan-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-map-marker-alt text-cyan-400 text-2xl"></i>
+                <div class="card-feature p-6 text-center">
+                    <div class="w-14 h-14 bg-[#147a96]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-[#147a96] text-2xl"></i>
                     </div>
-                    <h4 class="text-white font-semibold mb-2">Ubicación Exacta</h4>
-                    <p class="text-gray-400 text-sm">Sepa dónde está cada dispenser en todo momento</p>
+                    <h4 class="text-gray-800 font-semibold mb-2">Ubicación Exacta</h4>
+                    <p class="text-gray-500 text-sm">Sepa dónde está cada dispenser en todo momento</p>
                 </div>
             </div>
         </div>
@@ -709,164 +745,164 @@
     <!-- ============================================
          SECCIÓN CARACTERÍSTICAS Y FUNCIONALIDADES
          ============================================ -->
-    <section id="funcionalidades" class="py-24 gradient-section">
+    <section id="funcionalidades" class="py-24 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     FUNCIONALIDADES
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Características y Funcionalidades del Sistema
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Todo lo que necesitas para gestionar tu distribuidora de forma eficiente
                 </p>
             </div>
             
-            <div class="card-dark rounded-2xl p-8 section-fade">
+            <div class="card-feature rounded-2xl p-8 section-fade">
                 <div class="grid md:grid-cols-2 gap-x-10 gap-y-5">
                     <!-- Funcionalidad 1 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-recycle text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-recycle text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Control de envases y <span class="text-blue-400 font-medium">recuperación</span></p>
+                        <p class="text-gray-600">Control de envases y <span class="text-[#147a96] font-medium">recuperación</span></p>
                     </div>
                     
                     <!-- Funcionalidad 2 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-redo text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-redo text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Reparto por <span class="text-blue-400 font-medium">frecuencia</span> y <span class="text-blue-400 font-medium">pedidos</span></p>
+                        <p class="text-gray-600">Reparto por <span class="text-[#147a96] font-medium">frecuencia</span> y <span class="text-[#147a96] font-medium">pedidos</span></p>
                     </div>
                     
                     <!-- Funcionalidad 3 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-bolt text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Cierre de reparto rápidos para evitar colas</p>
+                        <p class="text-gray-600">Cierre de reparto rápidos para evitar colas</p>
                     </div>
                     
                     <!-- Funcionalidad 4 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-route text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-route text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Orden por <span class="text-blue-400 font-medium">día, zona</span> y <span class="text-blue-400 font-medium">ruta</span> con GPS</p>
+                        <p class="text-gray-600">Orden por <span class="text-[#147a96] font-medium">día, zona</span> y <span class="text-[#147a96] font-medium">ruta</span> con GPS</p>
                     </div>
                     
                     <!-- Funcionalidad 5 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-chart-bar text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-chart-bar text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Visualización y control de <span class="text-blue-400 font-medium">estadísticas</span> desde la App</p>
+                        <p class="text-gray-600">Visualización y control de <span class="text-[#147a96] font-medium">estadísticas</span> desde la App</p>
                     </div>
                     
                     <!-- Funcionalidad 6 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-map text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Visualización de mapas</p>
+                        <p class="text-gray-600">Visualización de mapas</p>
                     </div>
                     
                     <!-- Funcionalidad 7 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-location-arrow text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-location-arrow text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Seguimiento en <span class="text-blue-400 font-medium">tiempo real</span> de los repartidores</p>
+                        <p class="text-gray-600">Seguimiento en <span class="text-[#147a96] font-medium">tiempo real</span> de los repartidores</p>
                     </div>
                     
                     <!-- Funcionalidad 8 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-yellow-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-lightbulb text-yellow-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-lightbulb text-amber-500"></i>
                         </div>
-                        <p class="text-gray-300">Alertas e informes inteligentes para mejor toma de decisiones</p>
+                        <p class="text-gray-600">Alertas e informes inteligentes para mejor toma de decisiones</p>
                     </div>
                     
                     <!-- Funcionalidad 9 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-cyan-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-snowflake text-cyan-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-snowflake text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300"><span class="text-cyan-400 font-medium">Ubicación</span> y control de equipos Frío/Calor</p>
+                        <p class="text-gray-600"><span class="text-[#147a96] font-medium">Ubicación</span> y control de equipos Frío/Calor</p>
                     </div>
                     
                     <!-- Funcionalidad 10 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-user-slash text-red-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-rose-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-slash text-rose-500"></i>
                         </div>
-                        <p class="text-gray-300">Detección automática de clientes inactivos</p>
+                        <p class="text-gray-600">Detección automática de clientes inactivos</p>
                     </div>
                     
                     <!-- Funcionalidad 11 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-mobile-alt text-purple-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-mobile-alt text-[#106278]"></i>
                         </div>
-                        <p class="text-gray-300"><span class="text-purple-400 font-medium">App exclusiva</span> para repartidores y servicio técnico</p>
+                        <p class="text-gray-600"><span class="text-[#147a96] font-medium">App exclusiva</span> para repartidores y servicio técnico</p>
                     </div>
                     
                     <!-- Funcionalidad 12 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-print text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-print text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Emisión de comprobantes digitales o impresos</p>
+                        <p class="text-gray-600">Emisión de comprobantes digitales o impresos</p>
                     </div>
                     
                     <!-- Funcionalidad 13 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-file-invoice text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-invoice text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Facturación electrónica</p>
+                        <p class="text-gray-600">Facturación electrónica</p>
                     </div>
                     
                     <!-- Funcionalidad 14 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-pink-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-palette text-pink-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-rose-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-palette text-rose-500"></i>
                         </div>
-                        <p class="text-gray-300">App con el <span class="text-pink-400 font-medium">logo de tu empresa</span></p>
+                        <p class="text-gray-600">App con el <span class="text-rose-500 font-medium">logo de tu empresa</span></p>
                     </div>
                     
                     <!-- Funcionalidad 15 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-qrcode text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-qrcode text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Cobros con QR vinculados a <span class="text-blue-400 font-medium">Mercado Pago</span></p>
+                        <p class="text-gray-600">Cobros con QR vinculados a <span class="text-[#147a96] font-medium">Mercado Pago</span></p>
                     </div>
                     
                     <!-- Funcionalidad 16 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fab fa-whatsapp text-green-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-whatsapp text-emerald-500"></i>
                         </div>
-                        <p class="text-gray-300">Envío masivo de <span class="text-green-400 font-medium">WhatsApp</span>: facturas, recordatorios, promos</p>
+                        <p class="text-gray-600">Envío masivo de <span class="text-emerald-500 font-medium">WhatsApp</span>: facturas, recordatorios, promos</p>
                     </div>
                     
                     <!-- Funcionalidad 17 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-tasks text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-tasks text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Gestión integral de ventas, cobros, pedidos y stock</p>
+                        <p class="text-gray-600">Gestión integral de ventas, cobros, pedidos y stock</p>
                     </div>
                     
                     <!-- Funcionalidad 18 -->
-                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                        <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-cloud text-blue-400"></i>
+                    <div class="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-8 h-8 bg-[#147a96]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-cloud text-[#147a96]"></i>
                         </div>
-                        <p class="text-gray-300">Tecnología en la nube + Soporte y capacitación</p>
+                        <p class="text-gray-600">Tecnología en la nube + Soporte y capacitación</p>
                     </div>
                 </div>
             </div>
@@ -879,16 +915,16 @@
     <!-- ============================================
          SECCIÓN APP MÓVIL
          ============================================ -->
-    <section id="app" class="py-24 bg-black">
+    <section id="app" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Imagen -->
                 <div class="relative section-fade">
-                    <div class="card-dark rounded-2xl p-6 glow-blue">
+                    <div class="card-feature rounded-2xl p-6 shadow-lg">
                         <img src="https://www.repartodeagua.com/img/slider/ruta.png" alt="Ruta de reparto" class="w-full rounded-xl">
                     </div>
                     <!-- Badge -->
-                    <div class="absolute -bottom-4 -right-4 bg-green-600 rounded-xl p-4 shadow-xl">
+                    <div class="absolute -bottom-4 -right-4 bg-emerald-500 rounded-xl p-4 shadow-xl">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-wifi-slash text-white text-lg"></i>
                             <span class="text-white font-semibold text-sm">Sin Internet</span>
@@ -898,41 +934,41 @@
                 
                 <!-- Contenido -->
                 <div class="section-fade">
-                    <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         APLICACIÓN MÓVIL
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                         App para Celulares y Tablets
                     </h2>
-                    <p class="text-lg text-gray-300 mb-8">
+                    <p class="text-lg text-gray-600 mb-8">
                         Desarrollada de forma nativa para Android, ofreciendo la mejor usabilidad y experiencia para el repartidor. 
                         Una potente herramienta donde podrá realizar todas las gestiones sobre sus clientes.
                     </p>
                     
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-xl mt-0.5"></i>
-                            <span class="text-gray-200">No requiere Internet para funcionar</span>
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5"></i>
+                            <span class="text-gray-700">No requiere Internet para funcionar</span>
                         </li>
                         <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-xl mt-0.5"></i>
-                            <span class="text-gray-200">Registro de ventas y cobranzas en tiempo real</span>
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5"></i>
+                            <span class="text-gray-700">Registro de ventas y cobranzas en tiempo real</span>
                         </li>
                         <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-xl mt-0.5"></i>
-                            <span class="text-gray-200">Impresión de comprobantes con impresora térmica</span>
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5"></i>
+                            <span class="text-gray-700">Impresión de comprobantes con impresora térmica</span>
                         </li>
                         <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-xl mt-0.5"></i>
-                            <span class="text-gray-200">Sincronización automática con el sistema central</span>
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5"></i>
+                            <span class="text-gray-700">Sincronización automática con el sistema central</span>
                         </li>
                     </ul>
                     
                     <a href="https://play.google.com/store/apps/details?id=com.startapp.repartos.ui" target="_blank" 
-                       class="inline-flex items-center bg-white text-gray-900 px-6 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                       class="inline-flex items-center bg-[#147a96] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#106278] transition-colors shadow-lg">
                         <i class="fab fa-google-play text-2xl mr-3"></i>
                         <div class="text-left">
-                            <div class="text-xs text-gray-600">Disponible en</div>
+                            <div class="text-xs text-white/80">Disponible en</div>
                             <div class="text-lg font-bold">Google Play</div>
                         </div>
                     </a>
@@ -947,40 +983,40 @@
     <!-- ============================================
          SECCIÓN SISTEMA PC
          ============================================ -->
-    <section id="sistema" class="py-24 bg-black">
+    <section id="sistema" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Contenido -->
                 <div class="order-2 lg:order-1 section-fade">
-                    <span class="inline-flex items-center bg-green-600/20 border border-green-500/30 text-green-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="inline-flex items-center bg-emerald-500/10 border border-emerald-400/30 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         SISTEMA DE GESTIÓN
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                         Sistema de Gestión para PC
                     </h2>
-                    <p class="text-lg text-gray-300 mb-8">
+                    <p class="text-lg text-gray-600 mb-8">
                         A través del sistema de gestión podrás administrar completamente tu distribuidora con todas las herramientas que necesitas.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="card-dark rounded-xl p-4">
-                            <i class="fas fa-users text-blue-400 text-2xl mb-2"></i>
-                            <div class="font-semibold text-white">Clientes</div>
+                        <div class="card-feature p-4">
+                            <i class="fas fa-users text-[#147a96] text-2xl mb-2"></i>
+                            <div class="font-semibold text-gray-800">Clientes</div>
                             <div class="text-sm text-gray-500">Gestión completa</div>
                         </div>
-                        <div class="card-dark rounded-xl p-4">
-                            <i class="fas fa-map-marked-alt text-blue-400 text-2xl mb-2"></i>
-                            <div class="font-semibold text-white">Rutas</div>
+                        <div class="card-feature p-4">
+                            <i class="fas fa-map-marked-alt text-[#147a96] text-2xl mb-2"></i>
+                            <div class="font-semibold text-gray-800">Rutas</div>
                             <div class="text-sm text-gray-500">Por zonas y días</div>
                         </div>
-                        <div class="card-dark rounded-xl p-4">
-                            <i class="fas fa-box text-blue-400 text-2xl mb-2"></i>
-                            <div class="font-semibold text-white">Productos</div>
+                        <div class="card-feature p-4">
+                            <i class="fas fa-box text-[#147a96] text-2xl mb-2"></i>
+                            <div class="font-semibold text-gray-800">Productos</div>
                             <div class="text-sm text-gray-500">Stock y precios</div>
                         </div>
-                        <div class="card-dark rounded-xl p-4">
-                            <i class="fas fa-recycle text-blue-400 text-2xl mb-2"></i>
-                            <div class="font-semibold text-white">Envases</div>
+                        <div class="card-feature p-4">
+                            <i class="fas fa-recycle text-[#147a96] text-2xl mb-2"></i>
+                            <div class="font-semibold text-gray-800">Envases</div>
                             <div class="text-sm text-gray-500">Control total</div>
                         </div>
                     </div>
@@ -992,7 +1028,7 @@
                 
                 <!-- Imagen -->
                 <div class="order-1 lg:order-2 section-fade">
-                    <div class="card-dark rounded-2xl p-6" style="box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);">
+                    <div class="card-feature rounded-2xl p-6" style="box-shadow: 0 0 30px rgba(20, 122, 150, 0.15);">
                         <img src="https://www.repartodeagua.com/img/slider/pc-gestion.png" alt="Sistema de Gestión PC" class="w-full rounded-xl">
                     </div>
                 </div>
@@ -1006,133 +1042,133 @@
     <!-- ============================================
          SECCIÓN BENEFICIOS
          ============================================ -->
-    <section id="beneficios" class="py-24 gradient-section">
+    <section id="beneficios" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     BENEFICIOS
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     Haz tu trabajo más productivo
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Todas las herramientas que necesitas para optimizar tu distribuidora
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Beneficio 1 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-blue-600/20 text-blue-400">
+                        <div class="icon-box bg-[#147a96]/10 text-[#147a96]">
                             <i class="fas fa-print"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Impresora Térmica</h3>
+                            <h3 class="text-gray-800 font-semibold">Impresora Térmica</h3>
                             <p class="text-gray-500 text-sm">Comprobantes portátiles</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 2 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-green-600/20 text-green-400">
+                        <div class="icon-box bg-emerald-500/10 text-emerald-600">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Monitoreo GPS</h3>
+                            <h3 class="text-gray-800 font-semibold">Monitoreo GPS</h3>
                             <p class="text-gray-500 text-sm">Seguimiento en tiempo real</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 3 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-cyan-600/20 text-cyan-400">
+                        <div class="icon-box bg-[#147a96]/10 text-[#106278]">
                             <i class="fas fa-bottle-water"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Gestión de Envases</h3>
+                            <h3 class="text-gray-800 font-semibold">Gestión de Envases</h3>
                             <p class="text-gray-500 text-sm">Control y recuperación</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 4 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-purple-600/20 text-purple-400">
+                        <div class="icon-box bg-[#147a96]/10 text-[#147a96]">
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Abonos Mensuales</h3>
+                            <h3 class="text-gray-800 font-semibold">Abonos Mensuales</h3>
                             <p class="text-gray-500 text-sm">Gestión automatizada</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 5 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-red-600/20 text-red-400">
+                        <div class="icon-box bg-rose-500/10 text-rose-600">
                             <i class="fas fa-file-invoice"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Factura Electrónica</h3>
+                            <h3 class="text-gray-800 font-semibold">Factura Electrónica</h3>
                             <p class="text-gray-500 text-sm">Automática o individual</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 6 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-orange-600/20 text-orange-400">
+                        <div class="icon-box bg-amber-500/10 text-amber-600">
                             <i class="fas fa-ban"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Sin Papeles</h3>
+                            <h3 class="text-gray-800 font-semibold">Sin Papeles</h3>
                             <p class="text-gray-500 text-sm">Elimina planillas y hojas</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 7 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-yellow-600/20 text-yellow-400">
+                        <div class="icon-box bg-amber-500/10 text-amber-600">
                             <i class="fas fa-credit-card"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Cuentas Corrientes</h3>
+                            <h3 class="text-gray-800 font-semibold">Cuentas Corrientes</h3>
                             <p class="text-gray-500 text-sm">Control de saldos</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 8 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-indigo-600/20 text-indigo-400">
+                        <div class="icon-box bg-[#147a96]/10 text-[#106278]">
                             <i class="fas fa-truck-loading"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Carga y Descarga</h3>
+                            <h3 class="text-gray-800 font-semibold">Carga y Descarga</h3>
                             <p class="text-gray-500 text-sm">Stock de repartidores</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Beneficio 9 -->
-                <div class="card-dark rounded-xl p-5 section-fade">
+                <div class="card-feature p-5 section-fade">
                     <div class="flex items-center space-x-4">
-                        <div class="icon-box bg-pink-600/20 text-pink-400">
+                        <div class="icon-box bg-rose-500/10 text-rose-600">
                             <i class="fas fa-bell"></i>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold">Alertas</h3>
+                            <h3 class="text-gray-800 font-semibold">Alertas</h3>
                             <p class="text-gray-500 text-sm">No compra, morosos, etc.</p>
                         </div>
                     </div>
@@ -1147,25 +1183,25 @@
     <!-- ============================================
          SECCIÓN TESTIMONIOS
          ============================================ -->
-    <section class="py-24 bg-black">
+    <section class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 section-fade">
-                <span class="inline-flex items-center bg-yellow-600/20 border border-yellow-500/30 text-yellow-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-flex items-center bg-amber-500/10 border border-amber-400/30 text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                     TESTIMONIOS
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     ¿Qué dicen nuestros clientes?
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Comentarios reales extraídos del PlayStore de Google
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Testimonio 1 -->
-                <div class="testimonial-card rounded-xl p-6 section-fade">
+                <div class="card-feature p-6 section-fade">
                     <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-500">
+                        <div class="flex text-amber-500">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1173,24 +1209,24 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6 italic">
+                    <p class="text-gray-600 mb-6 italic">
                         "Excelente aplicación. Me facilitó mucho el trabajo diario. Los repartidores la manejan sin problemas y funciona perfecto sin internet."
                     </p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-[#147a96] rounded-full flex items-center justify-center">
                             <span class="text-white font-bold">CM</span>
                         </div>
                         <div class="ml-3">
-                            <div class="font-semibold text-white">Carlos M.</div>
+                            <div class="font-semibold text-gray-800">Carlos M.</div>
                             <div class="text-sm text-gray-500">Distribuidora del Norte</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonio 2 -->
-                <div class="testimonial-card rounded-xl p-6 section-fade">
+                <div class="card-feature p-6 section-fade">
                     <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-500">
+                        <div class="flex text-amber-500">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1198,24 +1234,24 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6 italic">
+                    <p class="text-gray-600 mb-6 italic">
                         "Muy completo el sistema. Pude eliminar todas las planillas de Excel que usaba. El soporte técnico responde muy rápido."
                     </p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
                             <span class="text-white font-bold">ML</span>
                         </div>
                         <div class="ml-3">
-                            <div class="font-semibold text-white">María L.</div>
+                            <div class="font-semibold text-gray-800">María L.</div>
                             <div class="text-sm text-gray-500">Agua Pura SRL</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonio 3 -->
-                <div class="testimonial-card rounded-xl p-6 section-fade">
+                <div class="card-feature p-6 section-fade">
                     <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-500">
+                        <div class="flex text-amber-500">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1223,15 +1259,15 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6 italic">
+                    <p class="text-gray-600 mb-6 italic">
                         "El monitoreo GPS me permite saber dónde están mis repartidores en todo momento. La gestión de envases es impecable."
                     </p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-[#106278] rounded-full flex items-center justify-center">
                             <span class="text-white font-bold">RS</span>
                         </div>
                         <div class="ml-3">
-                            <div class="font-semibold text-white">Roberto S.</div>
+                            <div class="font-semibold text-gray-800">Roberto S.</div>
                             <div class="text-sm text-gray-500">Aguas del Sur</div>
                         </div>
                     </div>
@@ -1246,30 +1282,30 @@
     <!-- ============================================
          SECCIÓN CONTACTO
          ============================================ -->
-    <section id="contacto" class="py-24 gradient-section">
+    <section id="contacto" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
                 <!-- Info de contacto -->
                 <div class="section-fade">
-                    <span class="inline-flex items-center bg-blue-600/20 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         CONTACTO
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                         ¿Listo para optimizar tu distribuidora?
                     </h2>
-                    <p class="text-lg text-gray-300 mb-8">
+                    <p class="text-lg text-gray-600 mb-8">
                         Contáctanos y te ayudaremos a implementar la mejor solución para tu negocio.
                     </p>
                     
                     <div class="space-y-5">
                         <!-- Email -->
                         <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-blue-600/20 text-blue-400">
+                            <div class="icon-box bg-[#147a96]/10 text-[#147a96]">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500">Email</div>
-                                <a href="mailto:ventas@startapp.com.ar" class="text-lg font-semibold text-white hover:text-blue-400 transition-colors">
+                                <a href="mailto:ventas@startapp.com.ar" class="text-lg font-semibold text-gray-800 hover:text-[#147a96] transition-colors">
                                     ventas@startapp.com.ar
                                 </a>
                             </div>
@@ -1277,12 +1313,12 @@
                         
                         <!-- WhatsApp -->
                         <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-green-600/20 text-green-400">
+                            <div class="icon-box bg-emerald-500/10 text-emerald-600">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500">WhatsApp</div>
-                                <a href="https://wa.me/+5493765026080" target="_blank" class="text-lg font-semibold text-white hover:text-green-400 transition-colors">
+                                <a href="https://wa.me/+5493765026080" target="_blank" class="text-lg font-semibold text-gray-800 hover:text-emerald-600 transition-colors">
                                     +54 9 3765 02-6080
                                 </a>
                             </div>
@@ -1290,12 +1326,12 @@
                         
                         <!-- Dirección -->
                         <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-red-600/20 text-red-400">
+                            <div class="icon-box bg-rose-500/10 text-rose-600">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500">Dirección</div>
-                                <div class="text-lg font-semibold text-white">
+                                <div class="text-lg font-semibold text-gray-800">
                                     Alvear 1460 Dpto 1N, Posadas, Misiones
                                 </div>
                             </div>
@@ -1311,7 +1347,7 @@
                                 <i class="fab fa-instagram text-lg"></i>
                             </a>
                             <a href="https://www.facebook.com/" target="_blank" 
-                               class="w-11 h-11 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
+                               class="w-11 h-11 bg-[#1877f2] rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
                                 <i class="fab fa-facebook-f text-lg"></i>
                             </a>
                         </div>
@@ -1320,38 +1356,38 @@
                 
                 <!-- Formulario -->
                 <div class="section-fade">
-                    <form id="contact-form" class="card-dark rounded-xl p-8">
-                        <h3 class="text-2xl font-bold text-white mb-6">Envíanos un mensaje</h3>
+                    <form id="contact-form" class="card-feature rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Envíanos un mensaje</h3>
                         
                         <div class="space-y-5">
                             <div>
-                                <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2">Nombre completo</label>
+                                <label for="nombre" class="block text-sm font-medium text-gray-600 mb-2">Nombre completo</label>
                                 <input type="text" id="nombre" name="nombre" required
-                                       class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors outline-none">
+                                       class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <label for="email" class="block text-sm font-medium text-gray-600 mb-2">Email</label>
                                 <input type="email" id="email" name="email" required
-                                       class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors outline-none">
+                                       class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="telefono" class="block text-sm font-medium text-gray-300 mb-2">Teléfono / WhatsApp</label>
+                                <label for="telefono" class="block text-sm font-medium text-gray-600 mb-2">Teléfono / WhatsApp</label>
                                 <input type="tel" id="telefono" name="telefono"
-                                       class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors outline-none">
+                                       class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="empresa" class="block text-sm font-medium text-gray-300 mb-2">Nombre de la empresa</label>
+                                <label for="empresa" class="block text-sm font-medium text-gray-600 mb-2">Nombre de la empresa</label>
                                 <input type="text" id="empresa" name="empresa"
-                                       class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors outline-none">
+                                       class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="mensaje" class="block text-sm font-medium text-gray-300 mb-2">Mensaje</label>
+                                <label for="mensaje" class="block text-sm font-medium text-gray-600 mb-2">Mensaje</label>
                                 <textarea id="mensaje" name="mensaje" rows="4" required
-                                          class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors outline-none resize-none"></textarea>
+                                          class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none resize-none"></textarea>
                             </div>
                             
                             <button type="submit" class="w-full btn-primary py-4 rounded-lg font-semibold">
@@ -1367,16 +1403,15 @@
     <!-- ============================================
          FOOTER
          ============================================ -->
-    <footer class="bg-black border-t border-white/10 py-12">
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-10">
                 <!-- Logo y descripción -->
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-5">
-                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-tint text-xl text-white"></i>
-                        </div>
-                        <span class="text-lg font-bold text-white">Reparto de Agua</span>
+                        <img src="https://www.repartodeagua.com/img/home/logo-h.png" 
+                             alt="Logo Reparto de Agua" 
+                             class="h-10 w-auto">
                     </div>
                     <p class="text-gray-400 mb-5 max-w-md">
                         La solución móvil más eficaz para la gestión de distribuidoras de agua y soda. 
@@ -1398,11 +1433,11 @@
                 <div>
                     <h4 class="font-semibold text-white mb-5">Enlaces</h4>
                     <ul class="space-y-3">
-                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-                        <li><a href="#caracteristicas" class="text-gray-400 hover:text-white transition-colors">Características</a></li>
-                        <li><a href="#app" class="text-gray-400 hover:text-white transition-colors">App Móvil</a></li>
-                        <li><a href="#sistema" class="text-gray-400 hover:text-white transition-colors">Sistema PC</a></li>
-                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="#inicio" class="text-gray-400 hover:text-[#47a7bf] transition-colors">Inicio</a></li>
+                        <li><a href="#caracteristicas" class="text-gray-400 hover:text-[#47a7bf] transition-colors">Características</a></li>
+                        <li><a href="#app" class="text-gray-400 hover:text-[#47a7bf] transition-colors">App Móvil</a></li>
+                        <li><a href="#sistema" class="text-gray-400 hover:text-[#47a7bf] transition-colors">Sistema PC</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-[#47a7bf] transition-colors">Contacto</a></li>
                     </ul>
                 </div>
                 
@@ -1411,15 +1446,15 @@
                     <h4 class="font-semibold text-white mb-5">Contacto</h4>
                     <ul class="space-y-3 text-gray-400">
                         <li class="flex items-center space-x-2">
-                            <i class="fas fa-envelope text-blue-500 text-sm"></i>
+                            <i class="fas fa-envelope text-[#147a96] text-sm"></i>
                             <span class="text-sm">ventas@startapp.com.ar</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <i class="fab fa-whatsapp text-green-500 text-sm"></i>
+                            <i class="fab fa-whatsapp text-emerald-500 text-sm"></i>
                             <span class="text-sm">+54 9 3765 02-6080</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <i class="fas fa-map-marker-alt text-red-500 text-sm"></i>
+                            <i class="fas fa-map-marker-alt text-rose-500 text-sm"></i>
                             <span class="text-sm">Posadas, Misiones, ARG</span>
                         </li>
                     </ul>
@@ -1427,15 +1462,15 @@
             </div>
             
             <!-- Copyright -->
-            <div class="border-t border-white/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 text-sm">
                     © 2026 STARTAPP - Reparto de Agua. Todos los derechos reservados.
                 </p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://www.startapp.com.ar/" target="_blank" class="text-gray-500 hover:text-white text-sm transition-colors">
+                    <a href="https://www.startapp.com.ar/" target="_blank" class="text-gray-500 hover:text-[#47a7bf] text-sm transition-colors">
                         www.startapp.com.ar
                     </a>
-                    <a href="https://www.repartodeagua.com/privacypolicy.html" target="_blank" class="text-gray-500 hover:text-white text-sm transition-colors">
+                    <a href="https://www.repartodeagua.com/privacypolicy.html" target="_blank" class="text-gray-500 hover:text-[#47a7bf] text-sm transition-colors">
                         Política de Privacidad
                     </a>
                 </div>
