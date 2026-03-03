@@ -27,6 +27,9 @@
     <!-- Hero Section Styles -->
     <link rel="stylesheet" href="css/hero-section.css">
     
+    <!-- Contact Map Styles -->
+    <link rel="stylesheet" href="css/contact-map.css">
+    
     <style>
         * {
             font-family: 'Lato', sans-serif;
@@ -1314,118 +1317,179 @@
     <!-- ============================================
          SECCIÓN CONTACTO
          ============================================ -->
-    <section id="contacto" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Info de contacto -->
-                <div class="section-fade">
-                    <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                        CONTACTO
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                        ¿Listo para optimizar tu distribuidora?
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Contáctanos y te ayudaremos a implementar la mejor solución para tu negocio.
-                    </p>
-                    
-                    <div class="space-y-5">
-                        <!-- Email -->
-                        <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-[#147a96]/10 text-[#147a96]">
-                                <i class="fas fa-envelope"></i>
+    <section id="contacto" class="contact-with-map">
+        <!-- Mapa de Google Maps -->
+        <div class="contact-map-wrapper">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.9387656270654!2d-55.89651492393556!3d-27.370949976380607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be7c3e7a1c9d%3A0x8c7c5d5b5c5a5a5a!2sAlvear%201460%2C%20N3300%20Posadas%2C%20Misiones%2C%20Argentina!5e0!3m2!1ses-419!2sar!4v1709500000000!5m2!1ses-419!2sar" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de Reparto de Agua - Posadas, Misiones">
+            </iframe>
+            
+            <!-- Contenido superpuesto al mapa -->
+            <div class="contact-content-overlay">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="contact-mobile-wrapper lg:flex lg:gap-8">
+                        <!-- Tarjeta de contacto - Alineada a la izquierda -->
+                        <div class="contact-card-left p-6 lg:p-8 section-fade">
+                            <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                                <i class="fas fa-map-marker-alt mr-2"></i> CONTACTO
+                            </span>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                                ¿Listo para optimizar tu distribuidora?
+                            </h2>
+                            <p class="text-gray-600 mb-6">
+                                Contáctanos y te ayudaremos a implementar la mejor solución para tu negocio.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <!-- Email -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="contact-icon-box bg-[#147a96]/10 text-[#147a96]">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wide">Email</div>
+                                        <a href="mailto:ventas@startapp.com.ar" class="font-semibold text-gray-800 hover:text-[#147a96] transition-colors">
+                                            ventas@startapp.com.ar
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- WhatsApp -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="contact-icon-box bg-emerald-500/10 text-emerald-600">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wide">WhatsApp</div>
+                                        <a href="https://wa.me/+5493765026080" target="_blank" class="font-semibold text-gray-800 hover:text-emerald-600 transition-colors">
+                                            +54 9 3765 02-6080
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dirección -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="contact-icon-box bg-rose-500/10 text-rose-600">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wide">Dirección</div>
+                                        <div class="font-semibold text-gray-800">
+                                            Alvear 1460 Dpto 1N, Posadas, Misiones
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="text-sm text-gray-500">Email</div>
-                                <a href="mailto:ventas@startapp.com.ar" class="text-lg font-semibold text-gray-800 hover:text-[#147a96] transition-colors">
-                                    ventas@startapp.com.ar
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- WhatsApp -->
-                        <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-emerald-500/10 text-emerald-600">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-500">WhatsApp</div>
-                                <a href="https://wa.me/+5493765026080" target="_blank" class="text-lg font-semibold text-gray-800 hover:text-emerald-600 transition-colors">
-                                    +54 9 3765 02-6080
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Dirección -->
-                        <div class="flex items-center space-x-4">
-                            <div class="icon-box bg-rose-500/10 text-rose-600">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-500">Dirección</div>
-                                <div class="text-lg font-semibold text-gray-800">
-                                    Alvear 1460 Dpto 1N, Posadas, Misiones
+                            
+                            <!-- Redes Sociales -->
+                            <div class="mt-6 pt-6 border-t border-gray-200">
+                                <div class="text-xs text-gray-500 uppercase tracking-wide mb-3">Síguenos en redes</div>
+                                <div class="flex space-x-3">
+                                    <a href="https://www.instagram.com/repartoagua/" target="_blank" 
+                                       class="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/" target="_blank" 
+                                       class="w-10 h-10 bg-[#1877f2] rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Redes Sociales -->
-                    <div class="mt-10">
-                        <div class="text-sm text-gray-500 mb-4">Síguenos en redes</div>
-                        <div class="flex space-x-3">
-                            <a href="https://www.instagram.com/repartoagua/" target="_blank" 
-                               class="w-11 h-11 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
-                                <i class="fab fa-instagram text-lg"></i>
-                            </a>
-                            <a href="https://www.facebook.com/" target="_blank" 
-                               class="w-11 h-11 bg-[#1877f2] rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
-                                <i class="fab fa-facebook-f text-lg"></i>
-                            </a>
+                        
+                        <!-- Formulario - Solo visible en móvil debajo del mapa -->
+                        <div class="lg:hidden mt-6">
+                            <form id="contact-form" class="contact-form-card p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-5">Envíanos un mensaje</h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label for="nombre" class="block text-sm font-medium text-gray-600 mb-1.5">Nombre completo</label>
+                                        <input type="text" id="nombre" name="nombre" required
+                                               class="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-600 mb-1.5">Email</label>
+                                        <input type="email" id="email" name="email" required
+                                               class="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="telefono" class="block text-sm font-medium text-gray-600 mb-1.5">Teléfono / WhatsApp</label>
+                                        <input type="tel" id="telefono" name="telefono"
+                                               class="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="empresa" class="block text-sm font-medium text-gray-600 mb-1.5">Nombre de la empresa</label>
+                                        <input type="text" id="empresa" name="empresa"
+                                               class="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="mensaje" class="block text-sm font-medium text-gray-600 mb-1.5">Mensaje</label>
+                                        <textarea id="mensaje" name="mensaje" rows="3" required
+                                                  class="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none resize-none"></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold">
+                                        <i class="fas fa-paper-plane mr-2"></i> Enviar mensaje
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Formulario -->
-                <div class="section-fade">
-                    <form id="contact-form" class="card-feature rounded-xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Envíanos un mensaje</h3>
+            </div>
+        </div>
+        
+        <!-- Formulario debajo del mapa - Solo visible en desktop -->
+        <div class="hidden lg:block bg-gray-50 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl mx-auto">
+                    <form id="contact-form-desktop" class="contact-form-card p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Envíanos un mensaje</h3>
                         
-                        <div class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <label for="nombre" class="block text-sm font-medium text-gray-600 mb-2">Nombre completo</label>
-                                <input type="text" id="nombre" name="nombre" required
+                                <label for="nombre-desktop" class="block text-sm font-medium text-gray-600 mb-2">Nombre completo</label>
+                                <input type="text" id="nombre-desktop" name="nombre" required
                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-600 mb-2">Email</label>
-                                <input type="email" id="email" name="email" required
+                                <label for="email-desktop" class="block text-sm font-medium text-gray-600 mb-2">Email</label>
+                                <input type="email" id="email-desktop" name="email" required
                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="telefono" class="block text-sm font-medium text-gray-600 mb-2">Teléfono / WhatsApp</label>
-                                <input type="tel" id="telefono" name="telefono"
+                                <label for="telefono-desktop" class="block text-sm font-medium text-gray-600 mb-2">Teléfono / WhatsApp</label>
+                                <input type="tel" id="telefono-desktop" name="telefono"
                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
                             
                             <div>
-                                <label for="empresa" class="block text-sm font-medium text-gray-600 mb-2">Nombre de la empresa</label>
-                                <input type="text" id="empresa" name="empresa"
+                                <label for="empresa-desktop" class="block text-sm font-medium text-gray-600 mb-2">Nombre de la empresa</label>
+                                <input type="text" id="empresa-desktop" name="empresa"
                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none">
                             </div>
-                            
-                            <div>
-                                <label for="mensaje" class="block text-sm font-medium text-gray-600 mb-2">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje" rows="4" required
-                                          class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none resize-none"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full btn-primary py-4 rounded-lg font-semibold">
-                                <i class="fas fa-paper-plane mr-2"></i> Enviar mensaje
-                            </button>
                         </div>
+                        
+                        <div class="mt-5">
+                            <label for="mensaje-desktop" class="block text-sm font-medium text-gray-600 mb-2">Mensaje</label>
+                            <textarea id="mensaje-desktop" name="mensaje" rows="4" required
+                                      class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#147a96] focus:ring-1 focus:ring-[#147a96] transition-colors outline-none resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary py-4 rounded-lg font-semibold mt-6">
+                            <i class="fas fa-paper-plane mr-2"></i> Enviar mensaje
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1554,27 +1618,37 @@
             observer.observe(el);
         });
         
-        // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const telefono = document.getElementById('telefono').value;
-            const empresa = document.getElementById('empresa').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Crear mensaje para WhatsApp
-            const whatsappMessage = `*Nuevo contacto desde la web*%0A%0A*Nombre:* ${nombre}%0A*Email:* ${email}%0A*Teléfono:* ${telefono}%0A*Empresa:* ${empresa}%0A*Mensaje:* ${mensaje}`;
-            
-            // Abrir WhatsApp
-            window.open(`https://wa.me/+5493765026080?text=${whatsappMessage}`, '_blank');
-            
-            // Limpiar formulario
-            this.reset();
-            
-            alert('¡Mensaje preparado! Se abrirá WhatsApp para enviar tu consulta.');
-        });
+        // Form submission - Handler genérico para ambos formularios
+        function handleContactForm(form, suffix = '') {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nombre = document.getElementById('nombre' + suffix).value;
+                const email = document.getElementById('email' + suffix).value;
+                const telefono = document.getElementById('telefono' + suffix).value;
+                const empresa = document.getElementById('empresa' + suffix).value;
+                const mensaje = document.getElementById('mensaje' + suffix).value;
+                
+                // Crear mensaje para WhatsApp
+                const whatsappMessage = `*Nuevo contacto desde la web*%0A%0A*Nombre:* ${nombre}%0A*Email:* ${email}%0A*Teléfono:* ${telefono}%0A*Empresa:* ${empresa}%0A*Mensaje:* ${mensaje}`;
+                
+                // Abrir WhatsApp
+                window.open(`https://wa.me/+5493765026080?text=${whatsappMessage}`, '_blank');
+                
+                // Limpiar formulario
+                form.reset();
+                
+                alert('¡Mensaje preparado! Se abrirá WhatsApp para enviar tu consulta.');
+            });
+        }
+        
+        // Formulario móvil
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) handleContactForm(contactForm, '');
+        
+        // Formulario desktop
+        const contactFormDesktop = document.getElementById('contact-form-desktop');
+        if (contactFormDesktop) handleContactForm(contactFormDesktop, '-desktop');
         
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
