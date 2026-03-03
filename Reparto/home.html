@@ -7,6 +7,9 @@
     <meta name="keywords" content="reparto de agua, distribuidora de agua, software de gestión, app repartidores, soda, envases">
     <title>Reparto de Agua | Gestión de Distribuidoras de Agua y Soda</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -17,6 +20,9 @@
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Animaciones y efectos -->
+    <link rel="stylesheet" href="css/animations.css">
     
     <style>
         * {
@@ -244,17 +250,17 @@
     <!-- ============================================
          HERO SECTION
          ============================================ -->
-    <section id="inicio" class="bg-white min-h-screen flex items-center pt-16">
+    <section id="inicio" class="bg-white min-h-screen flex items-center pt-16 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Texto Hero -->
-                <div>
+                <div class="animate-fade-up">
                     <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-medium mb-6">
                         <i class="fas fa-star mr-2"></i> #1 en gestión de distribuidoras
                     </span>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800">
                         La solución más eficaz para 
-                        <span class="text-[#147a96]">distribuidoras de agua y soda</span>
+                        <span class="text-[#147a96] gradient-text">distribuidoras de agua y soda</span>
                     </h1>
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed">
                         Sistema móvil completo para administrar ventas, cobranzas y distribución. 
@@ -287,17 +293,17 @@
                 </div>
                 
                 <!-- Imagen Hero -->
-                <div class="relative">
-                    <div class="animate-float">
-                        <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                <div class="relative animate-fade-right delay-200">
+                    <div class="animate-float float-animation">
+                        <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover-glow">
                             <img src="https://www.repartodeagua.com/img/home/home_tablet.png" alt="App Reparto de Agua" class="w-full rounded-xl">
                         </div>
                     </div>
                     <!-- Elementos decorativos -->
-                    <div class="absolute -bottom-4 -left-4 bg-[#147a96] rounded-xl p-3 shadow-xl hidden lg:block">
+                    <div class="absolute -bottom-4 -left-4 bg-[#147a96] rounded-xl p-3 shadow-xl hidden lg:block bounce-soft">
                         <i class="fas fa-mobile-alt text-white text-2xl"></i>
                     </div>
-                    <div class="absolute -top-4 -right-4 bg-emerald-500 rounded-xl p-3 shadow-xl hidden lg:block">
+                    <div class="absolute -top-4 -right-4 bg-emerald-500 rounded-xl p-3 shadow-xl hidden lg:block pulse-soft">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
                 </div>
@@ -919,12 +925,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Imagen -->
-                <div class="relative section-fade">
-                    <div class="card-feature rounded-2xl p-6 shadow-lg">
+                <div class="relative animate-fade-left">
+                    <div class="card-feature rounded-2xl p-6 shadow-lg hover-glow">
                         <img src="https://www.repartodeagua.com/img/slider/ruta.png" alt="Ruta de reparto" class="w-full rounded-xl">
                     </div>
                     <!-- Badge -->
-                    <div class="absolute -bottom-4 -right-4 bg-emerald-500 rounded-xl p-4 shadow-xl">
+                    <div class="absolute -bottom-4 -right-4 bg-emerald-500 rounded-xl p-4 shadow-xl bounce-soft">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-wifi-slash text-white text-lg"></i>
                             <span class="text-white font-semibold text-sm">Sin Internet</span>
@@ -933,7 +939,7 @@
                 </div>
                 
                 <!-- Contenido -->
-                <div class="section-fade">
+                <div class="animate-fade-right delay-200">
                     <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         APLICACIÓN MÓVIL
                     </span>
@@ -987,7 +993,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Contenido -->
-                <div class="order-2 lg:order-1 section-fade">
+                <div class="order-2 lg:order-1 animate-fade-left">
                     <span class="inline-flex items-center bg-emerald-500/10 border border-emerald-400/30 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         SISTEMA DE GESTIÓN
                     </span>
@@ -1027,8 +1033,8 @@
                 </div>
                 
                 <!-- Imagen -->
-                <div class="order-1 lg:order-2 section-fade">
-                    <div class="card-feature rounded-2xl p-6" style="box-shadow: 0 0 30px rgba(20, 122, 150, 0.15);">
+                <div class="order-1 lg:order-2 animate-fade-right delay-200">
+                    <div class="card-feature rounded-2xl p-6 hover-glow" style="box-shadow: 0 0 30px rgba(20, 122, 150, 0.15);">
                         <img src="https://www.repartodeagua.com/img/slider/pc-gestion.png" alt="Sistema de Gestión PC" class="w-full rounded-xl">
                     </div>
                 </div>
@@ -1482,7 +1488,7 @@
          BOTÓN WHATSAPP FLOTANTE
          ============================================ -->
     <a href="https://wa.me/+5493765026080" target="_blank" 
-       class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 transition-all z-50 hover:scale-110">
+       class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 transition-all z-50 hover:scale-110 pulse-soft">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
@@ -1558,5 +1564,8 @@
             });
         });
     </script>
+    
+    <!-- Animaciones y efectos dinámicos -->
+    <script src="js/animations.js"></script>
 </body>
 </html>
