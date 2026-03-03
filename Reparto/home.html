@@ -24,6 +24,9 @@
     <!-- Animaciones y efectos -->
     <link rel="stylesheet" href="css/animations.css">
     
+    <!-- Hero Section Styles -->
+    <link rel="stylesheet" href="css/hero-section.css">
+    
     <style>
         * {
             font-family: 'Lato', sans-serif;
@@ -250,9 +253,13 @@
     <!-- ============================================
          HERO SECTION
          ============================================ -->
-    <section id="inicio" class="bg-white min-h-screen flex items-center pt-16 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="inicio" class="bg-gradient-to-br from-white via-[#f8fafc] to-[#e8f4f7] py-16 pt-24 relative overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Decoraciones de fondo -->
+        <div class="hero-bg-decoration hero-bg-decoration-1"></div>
+        <div class="hero-bg-decoration hero-bg-decoration-2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
                 <!-- Texto Hero -->
                 <div class="animate-fade-up">
                     <span class="inline-flex items-center bg-[#147a96]/10 border border-[#147a96]/30 text-[#147a96] px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -292,18 +299,37 @@
                     </div>
                 </div>
                 
-                <!-- Imagen Hero -->
-                <div class="relative animate-fade-right delay-200">
-                    <div class="animate-float float-animation">
-                        <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover-glow">
-                            <img src="https://www.repartodeagua.com/img/home/home_tablet.png" alt="App Reparto de Agua" class="w-full rounded-xl">
+                <!-- Imagen Hero - Laptop + Celular -->
+                <div class="relative animate-fade-right delay-200 flex items-center justify-center">
+                    <div class="hero-devices-container">
+                        <!-- Badges flotantes -->
+                        <div class="hero-floating-badge badge-gps">
+                            <i class="icon-celeste fas fa-map-marker-alt"></i>
+                            <span>GPS en vivo</span>
                         </div>
+                        <div class="hero-floating-badge badge-offline">
+                            <i class="icon-green fas fa-wifi-slash"></i>
+                            <span>Modo Offline</span>
+                        </div>
+                        
+                        <!-- Laptop -->
+                        <img src="https://www.repartodeagua.com/img/slider/pc-gestion.png" 
+                             alt="Sistema de Gestión PC - Reparto de Agua" 
+                             class="hero-laptop"
+                             loading="eager">
+                        
+                        <!-- Celular superpuesto -->
+                        <img src="https://www.repartodeagua.com/img/slider/ruta.png" 
+                             alt="App Móvil - Reparto de Agua" 
+                             class="hero-phone"
+                             loading="eager">
                     </div>
+                    
                     <!-- Elementos decorativos -->
-                    <div class="absolute -bottom-4 -left-4 bg-[#147a96] rounded-xl p-3 shadow-xl hidden lg:block bounce-soft">
+                    <div class="absolute bottom-8 -left-2 bg-[#147a96] rounded-xl p-3 shadow-xl hidden lg:block bounce-soft">
                         <i class="fas fa-mobile-alt text-white text-2xl"></i>
                     </div>
-                    <div class="absolute -top-4 -right-4 bg-emerald-500 rounded-xl p-3 shadow-xl hidden lg:block pulse-soft">
+                    <div class="absolute top-8 right-0 bg-emerald-500 rounded-xl p-3 shadow-xl hidden lg:block pulse-soft">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
                 </div>

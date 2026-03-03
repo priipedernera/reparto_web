@@ -22,9 +22,9 @@
    1. VARIABLES DE ANIMACIÓN
    ============================================ */
 :root {
-    --animation-duration: 0.6s;
-    --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
-    --hover-duration: 0.3s;
+    --animation-duration: 1s;
+    --animation-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --hover-duration: 0.4s;
 }
 
 /* ============================================
@@ -86,7 +86,7 @@
 /* Fade simple */
 .animate-fade {
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 1.2s ease;
 }
 
 .animate-fade.visible {
@@ -94,12 +94,12 @@
 }
 
 /* Delays escalonados para grupos */
-.delay-100 { transition-delay: 0.1s !important; }
-.delay-200 { transition-delay: 0.2s !important; }
-.delay-300 { transition-delay: 0.3s !important; }
-.delay-400 { transition-delay: 0.4s !important; }
-.delay-500 { transition-delay: 0.5s !important; }
-.delay-600 { transition-delay: 0.6s !important; }
+.delay-100 { transition-delay: 0.15s !important; }
+.delay-200 { transition-delay: 0.3s !important; }
+.delay-300 { transition-delay: 0.45s !important; }
+.delay-400 { transition-delay: 0.6s !important; }
+.delay-500 { transition-delay: 0.75s !important; }
+.delay-600 { transition-delay: 0.9s !important; }
 
 /* ============================================
    3. EFECTOS HOVER MEJORADOS
@@ -175,7 +175,7 @@
 
 /* Flotación suave */
 .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -183,13 +183,13 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-12px);
     }
 }
 
 /* Flotación con rotación sutil */
 .float-rotate {
-    animation: floatRotate 8s ease-in-out infinite;
+    animation: floatRotate 10s ease-in-out infinite;
 }
 
 @keyframes floatRotate {
@@ -197,19 +197,19 @@
         transform: translateY(0) rotate(0deg);
     }
     25% {
-        transform: translateY(-8px) rotate(1deg);
+        transform: translateY(-6px) rotate(0.5deg);
     }
     50% {
-        transform: translateY(-15px) rotate(0deg);
+        transform: translateY(-12px) rotate(0deg);
     }
     75% {
-        transform: translateY(-8px) rotate(-1deg);
+        transform: translateY(-6px) rotate(-0.5deg);
     }
 }
 
 /* Rebote suave */
 .bounce-soft {
-    animation: bounceSoft 2s ease-in-out infinite;
+    animation: bounceSoft 3s ease-in-out infinite;
 }
 
 @keyframes bounceSoft {
@@ -217,13 +217,13 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
     }
 }
 
 /* Pulso suave */
 .pulse-soft {
-    animation: pulseSoft 2s ease-in-out infinite;
+    animation: pulseSoft 3s ease-in-out infinite;
 }
 
 @keyframes pulseSoft {
@@ -232,8 +232,8 @@
         opacity: 1;
     }
     50% {
-        transform: scale(1.05);
-        opacity: 0.9;
+        transform: scale(1.03);
+        opacity: 0.95;
     }
 }
 

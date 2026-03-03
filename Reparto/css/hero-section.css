@@ -1,0 +1,224 @@
+/**
+ * ============================================
+ * REPARTO DE AGUA - Hero Section Styles
+ * ============================================
+ * 
+ * Estilos para la sección hero con laptop + celular
+ * 
+ * ============================================
+ */
+
+/* ============================================
+   CONTENEDOR DE DISPOSITIVOS (LAPTOP + CELULAR)
+   ============================================ */
+
+.hero-devices-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    /* Mejor alineación vertical */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -15px; /* Subir ligeramente el bloque */
+}
+
+/* Laptop */
+.hero-laptop {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: drop-shadow(0 20px 40px rgba(20, 122, 150, 0.15));
+    transition: transform 0.5s ease;
+}
+
+.hero-devices-container:hover .hero-laptop {
+    transform: translateY(-4px);
+}
+
+/* Celular superpuesto */
+.hero-phone {
+    position: absolute;
+    bottom: -8%;
+    right: -8%;
+    width: 38%;
+    height: auto;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+    animation: phoneFloat 8s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes phoneFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ============================================
+   BADGES FLOTANTES EN HERO
+   ============================================ */
+
+.hero-floating-badge {
+    position: absolute;
+    background: white;
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e293b;
+    z-index: 15;
+    animation: badgeFloat 6s ease-in-out infinite;
+}
+
+.hero-floating-badge.badge-gps {
+    top: 12%;
+    right: 5%;
+    animation-delay: 0s;
+}
+
+.hero-floating-badge.badge-offline {
+    bottom: 22%;
+    left: 2%;
+    animation-delay: 2s;
+}
+
+.hero-floating-badge i {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.hero-floating-badge .icon-celeste {
+    background: rgba(20, 122, 150, 0.1);
+    color: #147a96;
+}
+
+.hero-floating-badge .icon-green {
+    background: rgba(5, 150, 105, 0.1);
+    color: #059669;
+}
+
+@keyframes badgeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ============================================
+   DECORACIONES DE FONDO
+   ============================================ */
+
+.hero-bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(20, 122, 150, 0.08), rgba(20, 122, 150, 0.02));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-bg-decoration-1 {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    animation: decorPulse 14s ease-in-out infinite;
+}
+
+.hero-bg-decoration-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -80px;
+    left: 5%;
+    animation: decorPulse 12s ease-in-out infinite;
+    animation-delay: 4s;
+}
+
+@keyframes decorPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 0.3;
+    }
+}
+
+/* ============================================
+   AJUSTES RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .hero-devices-container {
+        max-width: 450px;
+        margin-top: 0;
+    }
+    
+    .hero-phone {
+        width: 35%;
+        right: -5%;
+        bottom: -5%;
+    }
+    
+    .hero-floating-badge {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-devices-container {
+        max-width: 380px;
+    }
+    
+    .hero-phone {
+        width: 32%;
+        right: 0;
+        bottom: -3%;
+    }
+    
+    .hero-bg-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-devices-container {
+        max-width: 300px;
+    }
+    
+    .hero-phone {
+        width: 30%;
+    }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-phone,
+    .hero-floating-badge,
+    .hero-bg-decoration {
+        animation: none;
+    }
+    
+    .hero-devices-container:hover .hero-laptop {
+        transform: none;
+    }
+}
